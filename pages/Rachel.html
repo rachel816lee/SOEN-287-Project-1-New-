@@ -1,1 +1,107 @@
-<!--coming soon-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    <link rel="stylesheet" href="admin-courses.css">
+--><link rel="stylesheet" href="admin-courses.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Manage Courses | Smart Course Companion</title>
+
+</head>
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <h1>Smart Course Companion - Admin Panel</h1>
+        <nav>
+            <a href="admin-home.html">Home</a>
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="admin-manage courses.html" class="active">Manage Courses</a>
+            <a href="admin-assessments.html">Manage Assessments</a>
+            
+        </nav>
+    </header>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main>
+        <h2>Course Management</h2>
+        
+        <!-- ==================== CREATE COURSE SECTION ==================== -->
+        <section class="create-course">
+            <h3>Create New Course</h3>
+            <form id="createCourseForm">
+                <div class="form-group">
+                    <label for="courseCode">Course Code:</label>
+                    <input type="text" id="courseCode" placeholder="e.g., SOEN 287" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="courseName">Course Name:</label>
+                    <input type="text" id="courseName" placeholder="e.g., Web Programming" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="instructor">Instructor:</label>
+                    <input type="text" id="instructor" placeholder="e.g., Dr. Benharref" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="term">Term:</label>
+                    <select id="term" required>
+                        <option value="">--Select Term--</option>
+                        <option value="Winter 2026">Winter 2026</option>
+                        <option value="Summer 2026">Summer 2026</option>
+                        <option value="Fall 2026">Fall 2026</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-create">Create Course</button>
+            </form>
+        </section>
+
+        <!-- ==================== COURSE LIST SECTION ==================== -->
+        <section class="course-list">
+
+            <!-- ==================== MESSAGE AREA ==================== -->
+            <div id="messageArea" class="message-area">
+            <!-- Messages will appear here -->
+            </div>
+
+            <h3>Existing Courses</h3>
+            
+            <!-- Hard-coded courses table (for Deliverable 1) -->
+            <table id="coursesTable">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Course Name</th>
+                        <th>Instructor</th>
+                        <th>Term</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="coursesBody"></tbody>
+            </table>
+        </section>
+
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <nav>
+            <a href="admin-home.html">Home</a>
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="admin-courses.html" class="active">Manage Courses</a>
+            <a href="admin-assessments.html">Manage Assessments</a>
+            
+        </nav>
+        <p>&copy; 2026 Smart Course Companion - Admin Panel</p>
+    </footer>
+
+    <!--
+    <script src="admin-courses.js"></script>
+--><script src="admin-courses.js"></script>
+</body>
+</html>
