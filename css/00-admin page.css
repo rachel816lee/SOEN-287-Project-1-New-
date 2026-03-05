@@ -320,6 +320,126 @@ tr:hover {
     padding: 1.5rem;      /* Slightly reduce padding if needed */
 }
 
+/* ==================== UNIVERSAL STYLES FOR ALL PAGES ==================== */
+/* These styles will work with Hanan's HTML without modifying her code */
+
+/* Style all forms */
+form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 1rem 0;
+}
+
+/* Style all labels */
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Style all text inputs, email inputs, password inputs */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+    outline: none;
+    border-color: #e67e22;
+    box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
+}
+
+/* Style checkboxes */
+form input[type="checkbox"] {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Style submit buttons */
+form input[type="submit"] {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+form input[type="submit"]:hover {
+    background-color: #229954;
+}
+
+/* Style page headings */
+h1, h2 {
+    color: #1a2634;
+    border-bottom: 2px solid #e67e22;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+/* Style horizontal rule */
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 2rem 0;
+}
+
+/* Style navigation links */
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    background-color: #1a2634;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+ul li a:hover {
+    background-color: #2c3e50;
+}
+
+/* Style paragraph links */
+p a {
+    color: #e67e22;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Style login/signup containers */
+div {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* ==================== FOOTER ==================== */
 footer {
     text-align: center;
