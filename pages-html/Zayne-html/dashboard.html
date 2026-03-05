@@ -1,18 +1,27 @@
+
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Smart Course Companion </title>
-    
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="dashboard.css">
-    
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Smart Course Companion</title>
 
-    <body>
-        
+   
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
 
-        <main>
+  <body>
+    <header>
+  <h1>Smart Course Companion</h1>
+
+  <nav>
+    <a class="active" href="student_dashboard.html">Student Dashboard</a>
+    <a class="active" href="Admin_dashboard.html">Admin Dashboard</a> 
+  </nav>
+</header>
+
+    <main>
         <!-- Course name could be implement later -->
          <div class="course_body">
          <div class="course course_1" id="course_1">
@@ -172,13 +181,14 @@
         <button type="button" class="edit_button cancel_button"> Cancel </button>
 
         </section>
-        </main>
+    </main>
 
+    <footer>
+      <p>© Smart Course Companion</p>
+    </footer>
 
-
-    
-<script>
-(function(){
+    <script>
+      (function(){
   const panel = document.getElementById('edit_panel');
   const titleEl = panel ? panel.querySelector('h4') : null;
   const assessmentSelect = document.getElementById('assessment_select');
@@ -250,8 +260,6 @@
   // Start hidden
   closePanel();
 })();
-</script>
-
-</body>
-
+    </script>
+  </body>
 </html>
