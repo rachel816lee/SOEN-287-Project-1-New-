@@ -1,6 +1,6 @@
 // JavaScript (JS) for Deliverable 1 static prototype
 
-const courses = [
+const courses 11= [
   { id: 1, name: "Course 1", progress: 62 },
   { id: 2, name: "Course 2", progress: 48 },
   { id: 3, name: "Course 3", progress: 71 },
@@ -191,3 +191,4 @@ adminSave.addEventListener("click", () => {
 /* Init */
 renderCourses();
 switchPage("student");
+
