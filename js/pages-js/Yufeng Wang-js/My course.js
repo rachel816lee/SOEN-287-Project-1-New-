@@ -191,3 +191,5 @@ adminSave.addEventListener("click", () => {
 /* Init */
 renderCourses();
 switchPage("student");
+
+

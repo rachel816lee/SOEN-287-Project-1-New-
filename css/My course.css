@@ -1,6 +1,6 @@
 :root{
-  --bg: #eef0ff;
-  --panel: #f7f7ff;
+  --bg: #f5f5f5;       /* Light gray background  */
+  --panel: #2c3e50;    /* Dark slate for header/footer */
   --card: #ffffff;
   --text: #1b1d2a;
   --muted: #6c6f85;
@@ -11,9 +11,9 @@
 }
 
 body.theme-dark{
-  --bg: #0f1220;
-  --panel: #151a2f;
-  --card: #1c2240;
+  --bg: #1a1d26;
+  --panel: #242933;
+  --card: #2c323d;
   --text: #e9ecff;
   --muted: #aab0d3;
   --border: rgba(255,255,255,.12);
@@ -37,7 +37,8 @@ body{
   align-items:center;
   justify-content:space-between;
   padding: 18px 22px;
-  background: rgba(255,255,255,.30);
+  background: var(--panel); /*  dark header  */
+  color: #ffffff;           /* Navigation text to white  */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -46,6 +47,7 @@ body{
   margin:0;
   font-size: 34px;
   letter-spacing: .2px;
+  color: #ffffff;           /* Title to white  */
 }
 
 .top-actions{
@@ -132,8 +134,8 @@ body{
   display:inline-block;
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(120, 90, 255, .18);
-  color: var(--text);
+  background: rgba(91, 164, 229, .15); /* Light blue tint */
+  color: #5ba4e5;                     /* Vibrant blue text  */
   font-weight: 700;
   font-size: 14px;
 }
@@ -154,14 +156,14 @@ body{
   height: 100%;
   width: 60%;
   border-radius: 999px;
-  background: rgba(120, 90, 255, .70);
+  background: #5ba4e5; /*  blue button  */
 }
 
 .admin-card{
   max-width: 900px;
   margin: 0 auto;
   padding: 22px;
-  background: var(--panel);
+  background: var(--card); 
   border-radius: var(--radius);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
@@ -221,7 +223,7 @@ label{ font-weight: 700; color: var(--muted); }
 }
 
 .btn-primary{
-  background: rgba(120, 90, 255, .80);
+  background: #5ba4e5; /* Match "Track grades" blue  */
   color: white;
   border-color: transparent;
 }
@@ -240,7 +242,7 @@ label{ font-weight: 700; color: var(--muted); }
   right: -520px;
   width: 520px;
   height: 100%;
-  background: var(--panel);
+  background: var(--card);
   border-left: 1px solid var(--border);
   box-shadow: var(--shadow);
   transition: right .18s ease;
