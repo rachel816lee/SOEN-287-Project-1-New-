@@ -1,5 +1,6 @@
 // admin-courses.js - Admin Course Management
 // Deliverable 1 - Frontend with hard-coded data
+// Rachel's part: Delete and Enable/Disable functions only
 
 // ============================================
 // HARD-CODED COURSES DATA (for Deliverable 1)
@@ -75,6 +76,7 @@ function displayCourses() {
         // Toggle button text depends on current status
         const toggleButtonText = course.status === 'enabled' ? 'Disable' : 'Enable';
         
+        // RACHEL'S PART: Actions column only has Toggle and Delete buttons (NO EDIT)
         html += `
             <tr class="${rowClass}" data-course-id="${course.id}">
                 <td><strong>${course.code}</strong></td>
@@ -85,7 +87,6 @@ function displayCourses() {
                     <span class="status-badge ${statusClass}">${statusText}</span>
                 </td>
                 <td>
-                    <button class="action-btn btn-edit" onclick="editCourse(${course.id})">Edit</button>
                     <button class="action-btn btn-toggle" onclick="toggleCourseStatus(${course.id})">${toggleButtonText}</button>
                     <button class="action-btn btn-delete" onclick="deleteCourse(${course.id})">Delete</button>
                 </td>
@@ -97,7 +98,8 @@ function displayCourses() {
 }
 
 // ============================================
-// CREATE COURSE
+// CREATE COURSE - This is for Hanan's part
+// The form ID is provided by Rachel's hidden form
 // ============================================
 
 /**
@@ -107,11 +109,26 @@ document.getElementById('createCourseForm').addEventListener('submit', function(
     // Prevent the form from actually submitting (refreshing the page)
     event.preventDefault();
     
-    // Get form values
-    const courseCode = document.getElementById('courseCode').value.trim();
-    const courseName = document.getElementById('courseName').value.trim();
-    const instructor = document.getElementById('instructor').value.trim();
-    const term = document.getElementById('term').value.trim();
+    // Get form values from Hanan's form
+    // Note: Hanan's form doesn't have IDs, so we need to get elements by other means
+    const forms = document.getElementsByTagName('form');
+    let courseCode = '', courseName = '', instructor = '', term = '';
+    
+    // Find Hanan's Add Course form (the first form in the page)
+    for (let i = 0; i < forms.length; i++) {
+        const labels = forms[i].getElementsByTagName('label');
+        if (labels.length > 0 && labels[0].textContent.includes('Course Code')) {
+            // This is likely Hanan's Add Course form
+            const inputs = forms[i].getElementsByTagName('input');
+            if (inputs.length >= 4) {
+                courseCode = inputs[0].value.trim();
+                courseName = inputs[1].value.trim();
+                instructor = inputs[2].value.trim();
+                term = inputs[3].value.trim();
+            }
+            break;
+        }
+    }
     
     // Validate form
     if (!courseCode || !courseName || !instructor || !term) {
@@ -139,8 +156,11 @@ document.getElementById('createCourseForm').addEventListener('submit', function(
     // Add to courses array
     courses.push(newCourse);
     
-    // Clear form
-    document.getElementById('createCourseForm').reset();
+    // Clear Hanan's form
+    const inputs = document.querySelector('.create-course form').getElementsByTagName('input');
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = '';
+    }
     
     // Refresh the table
     displayCourses();
@@ -161,11 +181,11 @@ function generateNewId() {
 }
 
 // ============================================
-// DELETE COURSE - FEATURE 1 (for instructor)
+// RACHEL'S PART: DELETE COURSE
 // ============================================
 
 /**
- * Delete a course by ID
+ * Delete a course by ID (from table button)
  */
 function deleteCourse(courseId) {
     // Find the course to delete
@@ -188,8 +208,47 @@ function deleteCourse(courseId) {
     }
 }
 
+/**
+ * Handle Delete Course form submission
+ */
+document.getElementById('deleteCourseForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const deleteCode = document.getElementById('deleteCourseCode').value.trim();
+    
+    if (!deleteCode) {
+        showMessage('Please enter a course code.', 'error');
+        return;
+    }
+    
+    // Find the course with matching code
+    const courseToDelete = courses.find(c => c.code === deleteCode);
+    
+    if (!courseToDelete) {
+        showMessage(`Course code ${deleteCode} not found!`, 'error');
+        return;
+    }
+    
+    // Confirm deletion
+    const confirmDelete = confirm(`Are you sure you want to delete course ${deleteCode}?`);
+    
+    if (confirmDelete) {
+        // Filter out the course
+        courses = courses.filter(course => course.code !== deleteCode);
+        
+        // Refresh the table
+        displayCourses();
+        
+        // Clear the form
+        document.getElementById('deleteCourseCode').value = '';
+        
+        // Show success message
+        showMessage(`Course ${deleteCode} deleted successfully!`, 'success');
+    }
+});
+
 // ============================================
-// ENABLE/DISABLE COURSE - FEATURE 2 (for instructor)
+// RACHEL'S PART: ENABLE/DISABLE COURSE
 // ============================================
 
 /**
@@ -214,35 +273,6 @@ function toggleCourseStatus(courseId) {
 }
 
 // ============================================
-// EDIT COURSE (for completeness)
-// ============================================
-
-/**
- * Edit a course (simplified for Deliverable 1)
- * In a real app, this would open a form to edit details
- */
-function editCourse(courseId) {
-    const course = courses.find(c => c.id === courseId);
-    
-    if (!course) return;
-    
-    // For Deliverable 1, we'll just show an alert with the course info
-    // In Deliverable 2, you would open an edit form
-    alert(`
-        Edit Course: ${course.code}
-        
-        To edit course details in a real application:
-        1. Open a modal form
-        2. Pre-fill with current values
-        3. Save changes
-        
-        For now, you can:
-        - Delete and recreate the course
-        - Or wait for Deliverable 2 implementation
-    `);
-}
-
-// ============================================
 // MESSAGE DISPLAY FUNCTION
 // ============================================
 
@@ -259,15 +289,18 @@ function showMessage(message, type) {
     messageArea.className = 'message-area';
     messageArea.classList.add(`message-${type}`);
     
-    /* Hide the message after 3 seconds
+    // Make sure it's visible
+    messageArea.style.display = 'block';
+    
+    // Hide the message after 3 seconds
     setTimeout(() => {
         messageArea.style.display = 'none';
     }, 3000);
-    */
-    
-    // Make sure it's visible
-    messageArea.style.display = 'block';
 }
+
+// ============================================
+// REMOVED: editCourse function (not Rachel's part)
+// ============================================
 
 // ============================================
 // INITIALIZE THE PAGE
