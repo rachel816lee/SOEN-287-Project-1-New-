@@ -223,7 +223,7 @@ label{ font-weight: 700; color: var(--muted); }
 }
 
 .btn-primary{
-  background: #5ba4e5; /* Match "Track grades" blue  */
+  background: #5ba4e5; /* "Track grades" to blue  */
   color: white;
   border-color: transparent;
 }
