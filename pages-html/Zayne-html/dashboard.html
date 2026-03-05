@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Smart Course Companion </title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Smart Course Companion</title>
 
-    <body>
-        
+   
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
 
-        <main>
+  <body>
+    <header>
+  <h1>Smart Course Companion</h1>
+
+  <nav>
+    <a  href="home.html">Home</a> 
+    <a  class="active" href="studentDashboard.html">Student Dashboard</a>
+    <a  href="MyCourse.html">Manage Course</a> 
+    <a  href="TrackGrades.html">Track grades</a>  
+    <a  href="ManageAssessments.html">Manage Assessments</a> 
+  </nav>
+</header>
+
+    <main>
         <!-- Course name could be implement later -->
+         <div class="course_body">
          <div class="course course_1" id="course_1">
             <!-- titles -->
             <h2> 1  </h2>
@@ -137,7 +153,7 @@
                 <progress class="course_progress" id="course_progress_4" value="100" max="100"> 100% </progress>
          </div>
 
-
+         </div>
 
          <!-- Slide Bar -->
         <section class="edit_panel" id="edit_panel"> <!-- id for later use in js -->
@@ -145,10 +161,10 @@
 
         <!-- Name and DDL are hard coded, need to be automatically written after connect with other html by using JS. -->
         <h5> Name </h5>
-            <input type="text" id="name" name="name">
+        <select id="assessment_select"></select>
 
-        <h5> Deadline </h5>
-            <input type="date" id="ddl" name="ddl">
+        <!-- <h5> Deadline </h5>
+            <input type="date" id="ddl" name="ddl"> -->
 
         <h5> Progress </h5>
             
@@ -166,22 +182,92 @@
         <button type="button" class="edit_button cancel_button"> Cancel </button>
 
         </section>
-        </main>
+    </main>
 
+    <footer>
+      <nav>
+    <a  href="home.html">Home</a> 
+    <a  class="active" href="studentDashboard.html">Student Dashboard</a>
+    <a  href="MyCourse.html">Manage Course</a> 
+    <a  href="TrackGrades.html">Track grades</a>  
+    <a  href="ManageAssessments.html">Manage Assessments</a> 
+  </nav>
+  <p>&copy; 2026 Smart Course Companion</p>
+    </footer>
 
+    <script>
+      (function(){
+  const panel = document.getElementById('edit_panel');
+  const titleEl = panel ? panel.querySelector('h4') : null;
+  const assessmentSelect = document.getElementById('assessment_select');
 
+  function buildAssessmentDropdown(courseEl){
+    if(!assessmentSelect) return;
 
+    // reset dropdown
+    assessmentSelect.innerHTML = "";
 
+    // take all assessments in this course
+    const items = courseEl.querySelectorAll('li');
 
+    // if no assessments, show a text to indicate that
+    if(items.length === 0){
+      const opt = document.createElement('option');
+      opt.value = "";
+      opt.textContent = "No assessments found";
+      assessmentSelect.appendChild(opt);
+      return;
+    }
 
+    // convert each assessment to an option in the dropdown
+    items.forEach((li, idx) => {
+      const text = li.textContent.trim();
+      if(!text) return;
 
+      const opt = document.createElement('option');
+      opt.value = text;         
+      opt.textContent = text;    
+      if(idx === 0) opt.selected = true; 
+      assessmentSelect.appendChild(opt);
+    });
+  }
 
+  function openPanel(courseEl){
+    if(!panel) return;
 
+    const h2s = courseEl.querySelectorAll('h2');
+    const courseName = (h2s[1] ? h2s[1].textContent : courseEl.id).trim();
 
+    panel.classList.add('is-open');
+    if(titleEl) titleEl.textContent = 'Edit Assessments — ' + courseName;
 
+    // dropdown based on clicked course
+    buildAssessmentDropdown(courseEl);
+  }
 
+  function closePanel(){
+    if(!panel) return;
+    panel.classList.remove('is-open');
+  }
 
+  // clicking a course opens the panel
+  document.querySelectorAll('.course').forEach(course=>{
+    course.addEventListener('click', ()=>{
+      openPanel(course);
+    });
+  });
 
-    </body>
+  // Cancel hides panel
+  const cancelBtn = document.querySelector('.cancel_button');
+  if(cancelBtn) cancelBtn.addEventListener('click', closePanel);
 
+  // Save also hides panel 
+  const saveBtn = document.querySelector('.save_button');
+  if(saveBtn) saveBtn.addEventListener('click', closePanel);
+
+  // Start hidden
+  closePanel();
+})();
+    </script>
+  </body>
 </html>
