@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Course Management </title>
+    </head>
+    <body>
+
+        <h1> Course Management </h1>
+
+        <ul>
+            <li> <a href = "add"> Add a course</a></li>
+            <li> <a href = "delete"> Delete a course</a></li>
+            <li> <a href = "edit"> Edit a course</a></li>
+        </ul>
+
+        <h2 id ="add"> Add a Course</h2>
+        <form>
+
+        <label>Course Code:</label><br>
+        <input type="text" required><br><br>
+
+        <label>Course Name:</label><br>
+        <input type="text" required><br><br>
+
+        <label>Instructor:</label><br>
+        <input type="text" required><br><br>
+
+        <label>Term:</label><br>
+        <input type="text" required><br><br>
+
+        <input type="submit" value="Add Course">
+
+    </form>
+
+    <h2 id="edit">Edit a Course</h2>
+
+    <form>
+
+        <label>Enter Course Code to Edit:</label><br>
+        <input type="text" required><br><br>
+
+        <label>New Course Name:</label><br>
+        <input type="text"><br><br>
+
+        <label>New Instructor:</label><br>
+        <input type="text"><br><br>
+
+        <label>New Term:</label><br>
+        <input type="text"><br><br>
+
+        <input type="submit" value="Save Changes">
+
+    </form>
+
+     <h2 id="delete">Delete a Course</h2>
+
+    <form>
+
+        <label>Course Code:</label><br>
+        <input type="text" required><br><br>
+
+        <input type="submit" value="Delete Course">
+
+    </form>
+
+    </body>
+</html>
