@@ -3,27 +3,30 @@ Our team design and develop a web-based Smart Course Companion that helps studen
 
 project/
   index.html
-  pages/
-    member1.html
-    member2.html
-    member3.html
-    member4.html
   assets/
     images/
   css/
-    00-tokens.css
-    01-base.css
-    02-components.css
-    03-pages.css
+    00-admin page.css
+    01-student page.css
   js/
     main.js
     components/
       header.js
       footer.js
     pages/
-      member1.js
-      member2.js
-      member3.js
-      member4.js
+      Hanan-js/
+      Rachel-js/
+        admin-courses.js
+        track-grades.js
+      Yufeng Wang-js/
+      Zayne-js/
     utils/
       dom.js
+  pages-html/
+    main page-html
+    Hanan-html/
+    Rachel-html/
+      admin-manage courses.html
+      student-track grades.html
+    Yufeng Wang-html/
+    Zayne-html/

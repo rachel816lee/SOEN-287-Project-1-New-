@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--CSS will populate this 
+    <link rel="stylesheet" href="track-grades.css">-->
+    <link rel="stylesheet" href="track-grades.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Grades - Smart Course Companion</title>
+
+
+</head>
+<body>
+    <header>
+        <h1>Smart Course Companion</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="my-course.html">My course</a>
+            <a href="student-track grades.html" class="active">Track grades</a>
+            <a href="assessments.html">Assesments</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Track Your Grades</h2>
+        
+        <!-- Course Averages Section -->
+        <section class="course-averages">
+            <h3>Course Averages</h3>
+            <div id="courseAverages" class="averages-list"></div>
+        </section>
+
+        <!-- GPA Section -->
+        <section class="gpa-section">
+            <h3>Overall GPA</h3>
+            <div id="gpaDisplay" class="gpa-box"></div>
+        </section>
+
+        <!-- Hard-coded Assessments Table (for Deliverable 1) -->
+         <!--
+        <section class="grades-table">
+            <h3>Your Assessments</h3>
+            <table id="assessmentsTable">
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Assessment</th>
+                        <th>Earned Marks</th>
+                        <th>Total Marks</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody id="assessmentsBody">
+                                     
+                </tbody>
+            </table>
+        </section>
+    -->
+
+        <!-- Export Section -->
+        <section class="export-section">
+            <h3>Export Grades</h3>
+
+            <select id="exportFormat" onchange="handleExport()">
+                <option value="">-- Select export format --</option>
+                <option value="pdf">-- PDF format</option>
+                <option value="CSV">--CSV format</option>    
+            </select>
+
+            <button onclick="exportSelected()">Export</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="my-course.html">My course</a>
+            <a href="track-grades.html" class="active">Track grades</a>
+            <a href="assessments.html">Assesments</a>            
+        </nav>
+        <p>&copy; 2026 Smart Course Companion</p>
+    </footer>
+
+    <!-- JavaScript will populate this 
+    <script src="track-grades.js"></script>-->
+    <script src="track-grades.js"></script>
+</body>
+</html>
