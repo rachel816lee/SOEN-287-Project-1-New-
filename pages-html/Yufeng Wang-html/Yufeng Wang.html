@@ -1,1 +1,107 @@
-<!--  -->
+<!doctype html>   <!--tell browser this is HyperText Markup Language 5 -->
+<html lang="en">   <!--in English -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Course Companion</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+
+<body class="theme-light">
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <h1>Smart Course Companion</h1>
+    </div>
+
+    <div class="top-actions">
+      <!-- Page navigation drop-down -->
+      <label class="sr-only" for="pageSelect">Page Navigation</label>
+      <select id="pageSelect" class="select">
+        <option value="student">Student Dashboard</option>
+        <option value="admin">Admin: Edit Assessment Structure</option>
+      </select>
+
+      <!-- Role toggle (Stu/Adm) -->
+      <button id="roleToggle" class="pill" type="button" aria-pressed="false">
+        Stu/Adm
+      </button>
+
+      <!-- Theme toggle (Light/Dark) -->
+      <button id="themeToggle" class="pill" type="button" aria-pressed="false">
+        Light/Dark
+      </button>
+    </div>
+  </header>
+
+  <!-- Main layout -->
+  <main class="shell">
+    <!-- Left: page content -->
+    <section class="content">
+      <!-- Student page -->
+      <section id="page-student" class="page">
+        <div class="grid" id="courseGrid">
+          <!-- Cards inserted by JS -->
+        </div>
+      </section>
+
+      <!-- Admin page -->
+      <section id="page-admin" class="page hidden">
+        <div class="admin-card">
+          <h2>Edit Course Assessment</h2>
+
+          <div class="form-row">
+            <label for="adminCourseName">Name</label>
+            <input id="adminCourseName" class="input" placeholder="Enter course name..." />
+          </div>
+
+          <h3>Assessment Structures</h3>
+          <div id="adminStructureList" class="structure-list">
+            <!-- Rows inserted by JS -->
+          </div>
+
+          <button id="adminAddMore" class="btn-secondary" type="button">+ Add More</button>
+
+          <div class="form-actions">
+            <button id="adminCancel" class="btn-secondary" type="button">Cancel</button>
+            <button id="adminSave" class="btn-primary" type="button">Save</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- Right: slide-in panel (for clicking a specific course) -->
+    <aside id="drawer" class="drawer" aria-hidden="true">
+      <div class="drawer-header">
+        <h2 id="drawerTitle">Edit Course Assessment</h2>
+        <button id="drawerClose" class="icon-btn" type="button" aria-label="Close">✕</button>
+      </div>
+
+      <div class="drawer-body">
+        <div class="form-row">
+          <label for="drawerName">Name</label>
+          <input id="drawerName" class="input" placeholder="Enter assessment name..." />
+        </div>
+
+        <h3>Assessment Structures</h3>
+
+        <div id="structureList" class="structure-list">
+          <!-- Rows inserted by JS -->
+        </div>
+
+        <button id="addMore" class="btn-secondary" type="button">+ Add More</button>
+
+        <div class="form-actions">
+          <button id="cancelBtn" class="btn-secondary" type="button">Cancel</button>
+          <button id="saveBtn" class="btn-primary" type="button">Save</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay hidden"></div>
+  </main>
+
+  <script src="../../app.js"></script>
+</body>
+</html>
