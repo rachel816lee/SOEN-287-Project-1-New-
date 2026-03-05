@@ -1,5 +1,3 @@
-// JavaScript (JS) for Deliverable 1 static prototype
-
 const courses = [
   { id: 1, name: "Course 1", progress: 62 },
   { id: 2, name: "Course 2", progress: 48 },
@@ -188,8 +186,8 @@ adminSave.addEventListener("click", () => {
   alert(`Saved (prototype). Total weighting = ${sum}%.`);
 });
 
-/* Init */
 renderCourses();
 switchPage("student");
+
 
 
