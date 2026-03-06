@@ -1,5 +1,5 @@
 /* ==================== STUDENT COURSE MANAGEMENT STYLES ==================== */
-/* Based on 01-student page.css style */
+/* Based on 01-student page.css style - Full match */
 
 /* General Styles */
 body {
@@ -7,38 +7,69 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-/* Center all content */
-body > * {
-    width: 100%;
+/* Header */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: #34495e;
+}
+
+nav a.active {
+    background-color: #3498db;
+}
+
+/* Main content container */
+body {
+    display: block;  /* Remove flex from previous version */
+}
+
+/* Center content with main-like container */
+body > *:not(header):not(footer) {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 2rem;
     padding-right: 2rem;
-    box-sizing: border-box;
 }
 
-/* Headings */
-h1 {
+/* Page title */
+body > h1:first-of-type {
     color: #2c3e50;
     border-bottom: 2px solid #3498db;
     padding-bottom: 0.5rem;
     margin-top: 2rem;
+    margin-bottom: 1.5rem;
 }
 
+/* Section headings */
 h2 {
     color: #2c3e50;
     border-bottom: 2px solid #3498db;
     padding-bottom: 0.5rem;
     margin-top: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Navigation Menu */
+/* Navigation menu (the ul with links) */
 ul {
     list-style: none;
     padding: 1rem 2rem;
@@ -47,6 +78,7 @@ ul {
     background-color: #2c3e50;
     border-radius: 8px;
     margin: 1rem auto;
+    max-width: 800px;
 }
 
 ul li a {
@@ -68,6 +100,7 @@ form {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 1.5rem auto;
+    max-width: 800px;
 }
 
 form label {
@@ -94,7 +127,7 @@ form input[type="text"]:focus {
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
 }
 
-/* Submit buttons */
+/* Submit buttons - default blue */
 form input[type="submit"] {
     background-color: #3498db;
     color: white;
@@ -112,11 +145,45 @@ form input[type="submit"]:hover {
     background-color: #2980b9;
 }
 
-/* Special styling for Delete button */
+/* Special styling for Delete button (red) */
 h2#delete + form input[type="submit"] {
     background-color: #e74c3c;
 }
 
 h2#delete + form input[type="submit"]:hover {
     background-color: #c0392b;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #2c3e50;
+    color: white;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+footer nav {
+    margin-bottom: 0.5rem;
+}
+
+footer nav a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
+    margin: 0 0.3rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+footer nav a:hover {
+    background-color: #34495e;
+    color: white;
+}
+
+footer p {
+    margin: 0.5rem 0 0;
+    font-size: 0.8rem;
+    opacity: 0.7;
 }
