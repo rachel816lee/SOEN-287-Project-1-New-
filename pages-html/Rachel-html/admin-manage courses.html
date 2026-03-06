@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--
-    <link rel="stylesheet" href="admin-courses.css">
---><link rel="stylesheet" href="admin-courses.css">
+    <link rel="stylesheet" href="../../css/00-admin%20page.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Manage Courses | Smart Course Companion</title>
-
 </head>
 <body>
     <!-- ==================== HEADER ==================== -->
@@ -18,7 +15,6 @@
             <a href="admin-dashboard.html">Dashboard</a>
             <a href="admin-manage courses.html" class="active">Manage Courses</a>
             <a href="admin-assessments.html">Manage Assessments</a>
-            
         </nav>
     </header>
 
@@ -26,50 +22,95 @@
     <main>
         <h2>Course Management</h2>
         
-        <!-- ==================== CREATE COURSE SECTION ==================== -->
+        <!-- =============================================== -->
+        <!-- HANAN'S PART: Create Course (from instructorManagement.html) -->
+        <!-- =============================================== -->
         <section class="create-course">
-            <h3>Create New Course</h3>
-            <form id="createCourseForm">
-                <div class="form-group">
-                    <label for="courseCode">Course Code:</label>
-                    <input type="text" id="courseCode" placeholder="e.g., SOEN 287" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="courseName">Course Name:</label>
-                    <input type="text" id="courseName" placeholder="e.g., Web Programming" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="instructor">Instructor:</label>
-                    <input type="text" id="instructor" placeholder="e.g., Dr. Benharref" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="term">Term:</label>
-                    <select id="term" required>
-                        <option value="">--Select Term--</option>
-                        <option value="Winter 2026">Winter 2026</option>
-                        <option value="Summer 2026">Summer 2026</option>
-                        <option value="Fall 2026">Fall 2026</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="btn-create">Create Course</button>
+            <h2 id="create">Create a Course</h2>
+            <form>
+                <label>Course Code:</label><br>
+                <input type="text" required><br><br>
+
+                <label>Course Name:</label><br>
+                <input type="text" required><br><br>
+
+                <label>Instructor Name:</label><br>
+                <input type="text" required><br><br>
+
+                <label>Term:</label><br>
+                <input type="text" required><br><br>
+
+                <label>Assessment Categories:</label><br>
+                <input type="checkbox"> Assignments<br>
+                <input type="checkbox"> Labs<br>
+                <input type="checkbox"> Quizzes<br>
+                <input type="checkbox"> Exams<br><br>
+
+                <input type="submit" value="Create Course">
             </form>
+        </section>
+
+        <hr>
+
+        <!-- =============================================== -->
+        <!-- HANAN'S PART: Edit Course (from instructorManagement.html) -->
+        <!-- =============================================== -->
+        <section class="edit-course">
+            <h2 id="edit">Edit a Course</h2>
+            <form>
+                <label>Enter Course Code to Edit:</label><br>
+                <input type="text" required><br><br>
+
+                <label>New Course Name:</label><br>
+                <input type="text"><br><br>
+
+                <label>New Instructor Name:</label><br>
+                <input type="text"><br><br>
+
+                <label>New Term:</label><br>
+                <input type="text"><br><br>
+
+                <label>Update Assessment Categories:</label><br>
+                <input type="checkbox"> Assignments<br>
+                <input type="checkbox"> Labs<br>
+                <input type="checkbox"> Quizzes<br>
+                <input type="checkbox"> Exams<br><br>
+
+                <input type="submit" value="Save Changes">
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- =============================================== -->
+        <!-- RACHEL'S PART: Delete a Course                    -->
+        <!-- =============================================== -->
+        <section class="delete-course">
+            <h2 id="delete">Delete a Course</h2>
+            <form id="deleteCourseForm">
+                <label>Course Code:</label><br>
+                <input type="text" id="deleteCourseCode" placeholder="Enter course code to delete" required><br><br>
+                <input type="submit" value="Delete Course" class="btn-delete">
+            </form>
+        </section>
+
+        <!-- =============================================== -->
+        <!-- RACHEL'S PART: Hidden Form for Create Course (ID for JS) -->
+        <!-- =============================================== -->
+        <section style="display: none;">
+            <form id="createCourseForm"></form>
         </section>
 
         <!-- ==================== COURSE LIST SECTION ==================== -->
         <section class="course-list">
-
             <!-- ==================== MESSAGE AREA ==================== -->
             <div id="messageArea" class="message-area">
-            <!-- Messages will appear here -->
+                <!-- Messages will appear here -->
             </div>
 
             <h3>Existing Courses</h3>
             
-            <!-- Hard-coded courses table (for Deliverable 1) -->
+            <!-- Courses table populated by admin-courses.js -->
             <table id="coursesTable">
                 <thead>
                     <tr>
@@ -84,8 +125,6 @@
                 <tbody id="coursesBody"></tbody>
             </table>
         </section>
-
-
     </main>
 
     <!-- ==================== FOOTER ==================== -->
@@ -95,13 +134,10 @@
             <a href="admin-dashboard.html">Dashboard</a>
             <a href="admin-courses.html" class="active">Manage Courses</a>
             <a href="admin-assessments.html">Manage Assessments</a>
-            
         </nav>
         <p>&copy; 2026 Smart Course Companion - Admin Panel</p>
     </footer>
 
-    <!--
-    <script src="admin-courses.js"></script>
---><script src="admin-courses.js"></script>
+    <script src="../../js/pages-js/Rachel-js/admin-courses.js"></script>
 </body>
 </html>
