@@ -1,8 +1,3 @@
-/**
- * Student-Assessments.js
- * Logic for displaying course grid and managing the assessment drawer.
- */
-
 const courses = [
     { id: 1, name: "Course 1", progress: 62 },
     { id: 2, name: "Course 2", progress: 48 },
@@ -92,3 +87,4 @@ if (drawer) {
         overlay.classList.add("hidden");
     };
 }
+
