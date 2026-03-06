@@ -1,3 +1,4 @@
+/* Base Layout from 01-student page.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -11,29 +12,22 @@ body {
 header {
     background-color: #2c3e50;
     color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.brand h1 {
-    margin: 0;
-    font-size: 1.5rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    /* 新增：为了让子元素绝对定位 */
+    position: relative;
 }
 
 nav {
-    display: flex;
-    gap: 10px;
+    margin-top: 1rem;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
     border-radius: 4px;
-    transition: background-color 0.3s;
 }
 
 nav a:hover {
@@ -44,21 +38,25 @@ nav a.active {
     background-color: #3498db;
 }
 
-/* Top Actions Styles (New Addition) */
+/* 挪到右上角的样式 */
 .top-actions {
+    /* 核心：绝对定位到右上角 */
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
 .select {
-    padding: 8px 12px;
+    padding: 6px 12px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     background: rgba(255, 255, 255, 0.1);
     color: white;
     cursor: pointer;
-    outline: none;
+    font-size: 0.9rem;
 }
 
 .select option {
@@ -67,19 +65,18 @@ nav a.active {
 }
 
 .pill {
-    padding: 8px 16px;
+    padding: 6px 16px;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     background: transparent;
     color: white;
     cursor: pointer;
     font-size: 0.85rem;
-    transition: all 0.2s;
+    transition: background 0.2s;
 }
 
 .pill:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: white;
+    background: rgba(255, 255, 255, 0.15);
 }
 
 /* Content Shell */
