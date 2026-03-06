@@ -1,0 +1,74 @@
+INSTALLATION GUIDE - SMART COURSE COMPANION
+============================================
+Deliverable 1 - Frontend Only
+
+TEAM MEMBERS:
+- Hanan Sayed (40316818)
+- Yuqian Li (Rachel) (40330774)
+- Xinlei Tian (40293328)
+- Yufeng Wang (40247565)
+
+SYSTEM REQUIREMENTS:
+--------------------
+- Any modern web browser (Chrome, Firefox, Safari, Edge)
+- No server or database required
+- No internet connection needed
+
+INSTALLATION STEPS:
+-------------------
+1. Download and extract the project folder
+
+2. Ensure the following folder structure is maintained:
+
+   project-folder/
+   ├── index.html
+   ├── css/
+   │   ├── 00-admin page.css
+   │   ├── 01-student page.css
+   │   ├── My course.css
+   │   ├── courseManagement.css
+   │   ├── dashboard.css
+   │   ├── index.css
+   │   ├── instructorManagement.css
+   │   ├── loginPage.css
+   │   └── signup.css
+   └── pages-html/
+       ├── main page-html/
+       │   ├── admin side.html
+       │   └── student side.html
+       ├── Hanan-html/
+       │   ├── courseManagement.html
+       │   ├── instructorManagement.html
+       │   ├── loginPage.html
+       │   └── signup.html
+       ├── Rachel-html/
+       │   ├── admin-manage courses.html
+       │   └── student-track grades.html
+       ├── Yufeng Wang-html/
+       │   └── My course.html
+       └── Zayne-html/
+           └── dashboard.html
+
+3. Open the application:
+   - Navigate to the project folder
+   - Double-click on index.html
+   - The home page will open in your default browser
+
+4. Navigate through the pages:
+   - Click "Student Portal" to access student features
+   - Click "Admin Portal" to access admin features
+   - Use the navigation menu on each page to move between pages
+   - Click "Home" to return to index.html
+
+TROUBLESHOOTING:
+----------------
+- If styles don't load: Check that all CSS files are in the css/ folder
+- If links don't work: Verify file paths use correct relative paths (../../)
+- For best experience: Use Chrome or Firefox
+
+DELIVERABLE 1 NOTES:
+-------------------
+- This is a frontend-only prototype
+- All data is hard-coded
+- JavaScript provides UI interaction but no backend functionality
+- Full functionality will be implemented in Deliverable 2
