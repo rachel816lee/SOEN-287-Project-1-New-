@@ -60,58 +60,6 @@ h3 {
     margin-bottom: 2rem;
 }
 
-/* ==================== EDIT COURSE FORM ==================== */
-.edit-course {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.855);
-    margin-bottom: 2rem;
-}
-
-/* ==================== DELETE COURSE FORM ==================== */
-.delete-course {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.855);
-    margin-bottom: 2rem;
-}
-
-.delete-course h3 {
-    color: #e74c3c;  /* Red color for delete section */
-    /* Removed the red border line */
-    padding-left: 0;  /* Reset padding since border is removed */
-}
-
-.delete-course form {
-    margin-top: 1rem;
-}
-
-.delete-course label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-.delete-course input[type="text"] {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    margin-bottom: 1rem;
-}
-
-.delete-course input[type="text"]:focus {
-    outline: none;
-    border-color: #e74c3c;
-    box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
-}
-
-/* ==================== FORM GROUP STYLES (Shared) ==================== */
 .form-group {
     margin-bottom: 1rem;
 }
@@ -123,8 +71,7 @@ h3 {
     color: #2c3e50;
 }
 
-.form-group input,
-.form-group select {
+.form-group input,.form-group select {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ddd;
@@ -133,14 +80,12 @@ h3 {
     box-sizing: border-box;
 }
 
-.form-group input:focus, 
-.form-group select:focus {
+.form-group input:focus, .form-group select:focus {
     outline: none;
     border-color: #e67e22;
     box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
 }
 
-/* ==================== BUTTON STYLES ==================== */
 .btn-create {
     background-color: #27ae60;
     color: white;
@@ -157,68 +102,6 @@ h3 {
     background-color: #229954;
 }
 
-.btn-edit {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.btn-edit:hover {
-    background-color: #2980b9;
-}
-
-.btn-delete {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.btn-delete:hover {
-    background-color: #c0392b;
-}
-
-/* Small action buttons for table */
-.action-btn {
-    padding: 0.3rem 0.8rem;
-    margin: 0.1rem 0.2rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.action-btn.btn-toggle {
-    background-color: #f39c12;
-    color: white;
-}
-
-.action-btn.btn-toggle:hover {
-    background-color: #e67e22;
-}
-
-.action-btn.btn-delete {
-    background-color: #e74c3c;
-    color: white;
-}
-
-.action-btn.btn-delete:hover {
-    background-color: #c0392b;
-}
-
 /* ==================== COURSE TABLE ==================== */
 .course-list {
     background-color: white;
@@ -226,7 +109,6 @@ h3 {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     overflow-x: auto;
-    margin-top: 0;  /* Remove top margin to reduce space */
 }
 
 table {
@@ -270,6 +152,45 @@ tr:hover {
     border: 1px solid #f5c6cb;
 }
 
+/* Action buttons */
+.action-btn {
+    width: 50%;
+    padding: 0.2rem 0.4rem;
+    margin: 0.1rem 0.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.btn-edit {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #2980b9;
+}
+
+.btn-toggle {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-toggle:hover {
+    background-color: #e67e22;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
 /* Disabled course row styling */
 .disabled-row {
     background-color: #f8f9fa;
@@ -302,24 +223,6 @@ tr:hover {
     display: block;
 }
 
-/* ==================== SPACING ADJUSTMENTS ==================== */
-/* Reduce space between Delete section and Course List */
-.delete-course {
-    margin-bottom: 10px;  /* Reduce bottom margin */
-}
-
-.course-list {
-    margin-top: 0;        /* Remove top margin */
-}
-
-/* Optional: Adjust all sections for consistency */
-.create-course,
-.edit-course,
-.delete-course {
-    margin-bottom: 15px;  /* Consistent spacing between sections */
-    padding: 1.5rem;      /* Slightly reduce padding if needed */
-}
-
 /* ==================== FOOTER ==================== */
 footer {
     text-align: center;
@@ -330,174 +233,4 @@ footer {
     bottom: 0;
     width: 100%;
     margin-top: 2rem;
-}
-
-/* ==================== UNIVERSAL STYLES FOR ALL PAGES ==================== */
-/* These styles will work with Hanan's HTML without modifying her code */
-/* ADDED: Centering for all content on pages without header/footer */
-
-/* Center the body content */
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Center all direct children except header and footer */
-body > *:not(header):not(footer) {
-    width: 100%;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    box-sizing: border-box;
-}
-
-/* Style all forms */
-form {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 800px;
-    margin: 1.5rem auto;
-    box-sizing: border-box;
-}
-
-/* Style all labels */
-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-/* Style all text inputs, email inputs, password inputs */
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    margin-bottom: 1rem;
-}
-
-form input[type="text"]:focus,
-form input[type="email"]:focus,
-form input[type="password"]:focus {
-    outline: none;
-    border-color: #e67e22;
-    box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
-}
-
-/* Style checkboxes */
-form input[type="checkbox"] {
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Style submit buttons */
-form input[type="submit"] {
-    background-color: #27ae60;
-    color: white;
-    border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    margin-top: 1rem;
-}
-
-form input[type="submit"]:hover {
-    background-color: #229954;
-}
-
-/* Special styling for Delete button in student page */
-h2#delete + form input[type="submit"] {
-    background-color: #e74c3c;
-}
-
-h2#delete + form input[type="submit"]:hover {
-    background-color: #c0392b;
-}
-
-/* Style page headings */
-h1, h2 {
-    color: #1a2634;
-    border-bottom: 2px solid #e67e22;
-    padding-bottom: 0.5rem;
-    margin-top: 2rem;
-    width: 100%;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    box-sizing: border-box;
-}
-
-/* Style horizontal rule */
-hr {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 2rem auto;
-    width: 100%;
-    max-width: 1000px;
-}
-
-/* Style navigation links */
-ul {
-    list-style: none;
-    padding: 1rem 2rem;
-    display: flex;
-    gap: 1rem;
-    background-color: #1a2634;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 1000px;
-    margin: 1rem auto;
-    box-sizing: border-box;
-}
-
-ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-}
-
-ul li a:hover {
-    background-color: #2c3e50;
-}
-
-/* Style paragraph links */
-p a {
-    color: #e67e22;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-p a:hover {
-    text-decoration: underline;
-}
-
-/* Style login/signup containers */
-div {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    box-sizing: border-box;
-}
-
-/* Style for login/signup pages */
-body > h2:first-of-type {
-    margin-top: 3rem;
 }
