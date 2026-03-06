@@ -79,8 +79,9 @@ h3 {
 }
 
 .delete-course h3 {
-    color: #e74c3c;
-    padding-left: 0;
+    color: #e74c3c;  /* Red color for delete section */
+    /* Removed the red border line */
+    padding-left: 0;  /* Reset padding since border is removed */
 }
 
 .delete-course form {
@@ -225,7 +226,7 @@ h3 {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     overflow-x: auto;
-    margin-top: 0;
+    margin-top: 0;  /* Remove top margin to reduce space */
 }
 
 table {
@@ -302,29 +303,47 @@ tr:hover {
 }
 
 /* ==================== SPACING ADJUSTMENTS ==================== */
+/* Reduce space between Delete section and Course List */
 .delete-course {
-    margin-bottom: 10px;
+    margin-bottom: 10px;  /* Reduce bottom margin */
 }
 
 .course-list {
-    margin-top: 0;
+    margin-top: 0;        /* Remove top margin */
 }
 
+/* Optional: Adjust all sections for consistency */
 .create-course,
 .edit-course,
 .delete-course {
-    margin-bottom: 15px;
-    padding: 1.5rem;
+    margin-bottom: 15px;  /* Consistent spacing between sections */
+    padding: 1.5rem;      /* Slightly reduce padding if needed */
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1a2634;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 2rem;
 }
 
 /* ==================== UNIVERSAL STYLES FOR ALL PAGES ==================== */
-/* Center all content on pages without header/footer */
+/* These styles will work with Hanan's HTML without modifying her code */
+/* ADDED: Centering for all content on pages without header/footer */
+
+/* Center the body content */
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Center all direct children except header and footer */
 body > *:not(header):not(footer) {
     width: 100%;
     max-width: 1000px;
@@ -481,16 +500,4 @@ div {
 /* Style for login/signup pages */
 body > h2:first-of-type {
     margin-top: 3rem;
-}
-
-/* ==================== FOOTER ==================== */
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #1a2634;
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    margin-top: 2rem;
 }
