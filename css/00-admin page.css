@@ -327,3 +327,71 @@ footer {
     width: 100%;
     margin-top: 2rem;
 }
+
+/* ==================== UNIVERSAL CENTERING STYLES ==================== */
+/* These styles center all content on pages without a main container */
+
+/* Center the body and all its children */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Center all direct children of body */
+body > * {
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-sizing: border-box;
+}
+
+/* Style all forms */
+form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1.5rem auto;
+}
+
+/* Style the navigation menu */
+ul {
+    list-style: none;
+    padding: 1rem 2rem;
+    display: flex;
+    gap: 1rem;
+    background-color: #1a2634;
+    border-radius: 8px;
+    margin: 1rem auto;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+ul li a:hover {
+    background-color: #2c3e50;
+}
+
+/* Style headings */
+h1 {
+    color: #1a2634;
+    border-bottom: 2px solid #e67e22;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+/* Style horizontal rule */
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 2rem auto;
+    width: 100%;
+}
