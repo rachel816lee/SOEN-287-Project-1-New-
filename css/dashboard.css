@@ -49,7 +49,7 @@ nav a.active{
   background-color: var(--accent);
 }
 
-/* General headings (only outside .course, avoid conflicting your card h2 rules) */
+/* General headings (only outside .course, avoid conflicting card h2) */
 main > h2{
   color: var(--text);
   border-bottom: 2px solid var(--accent);

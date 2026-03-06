@@ -33,12 +33,12 @@ STUDENT FEATURES:
    - Overall GPA display
    - Export section with PDF/CSV dropdown and Export button
 
-5. My Course Page with Admin View (Yufeng)
+5. Assessments with Admin View (Yufeng)
    - Course cards grid layout
    - Assessment structures display
    - Stu/Adm toggle button to switch between student and admin views
    - Light/Dark theme toggle button
-   - Admin view allows editing of assessment structures
+   - Admin view allows administrator editing of assessment structures
    - Slide-in drawer for editing assessments
 
 INSTRUCTOR/ADMIN FEATURES:
@@ -77,7 +77,8 @@ PAGES:
 - instructorManagement.html (Hanan)
 - admin-manage courses.html (Rachel)
 - student-track grades.html (Rachel)
-- My course.html (Yufeng)
+- Admin-Management-Assessments.html (Yufeng)
+- Student-Assessments.html (Yufeng)
 - dashboard.html (Xinlei)
 
 CSS FILES:
@@ -89,7 +90,7 @@ CSS FILES:
 - instructorManagement.css (Rachel)
 - loginPage.css (Rachel)
 - signup.css (Rachel)
-- My course.css (Yufeng)
+- Assessments.css (Yufeng)
 - dashboard.css (Xinlei)
 
 NOTE: This is Deliverable 1 - Frontend only. All data is hard-coded.

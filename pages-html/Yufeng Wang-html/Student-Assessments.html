@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Course Companion - Student</title>
+  <link rel="stylesheet" href="../../css/Student-Assessments.css" />
+</head>
+
+<body class="role-student">
+  <header>
+    <div class="brand">
+      <h1 id="main-title">Smart Course Companion</h1>
+    </div>
+
+    <nav id="nav-student">
+      <a href="home.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="my-course.html">My course</a>
+      <a href="student-track%20grades.html">Track grades</a>
+      <a href="Student-Assessments.html" class="active">Assessments</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="content">
+      <section id="page-student" class="page">
+        <div class="grid" id="courseGrid">
+          </div>
+      </section>
+    </section>
+
+    <aside id="drawer" class="drawer" aria-hidden="true">
+      <div class="drawer-header">
+        <h2 id="drawerTitle">Edit Course Assessment</h2>
+        <button id="drawerClose" class="icon-btn" type="button">✕</button>
+      </div>
+      <div class="drawer-body">
+        <div class="form-row">
+          <label for="drawerName">Name</label>
+          <input id="drawerName" class="input" placeholder="Enter assessment name..." />
+        </div>
+        <h3>Assessment Structures</h3>
+        <div id="structureList" class="structure-list"></div>
+        <button id="addMore" class="btn-secondary" type="button">+ Add More</button>
+        <div class="form-actions">
+          <button id="cancelBtn" class="btn-secondary" type="button">Cancel</button>
+          <button id="saveBtn" class="btn-primary" type="button">Save</button>
+        </div>
+      </div>
+    </aside>
+    <div id="overlay" class="overlay hidden"></div>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="my-course.html">My course</a>
+      <a href="student-track%20grades.html">Track grades</a>
+      <a href="Student-Assessments.html">Assessments</a>
+    </nav>
+    <p>&copy; 2026 Smart Course Companion</p>
+  </footer>
+
+  <script src="../../js/pages-js/Yufeng%20Wang-js/Student-Assessments.js"></script>
+</body>
+</html>
