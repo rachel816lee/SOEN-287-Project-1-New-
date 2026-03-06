@@ -300,7 +300,6 @@ body {
   background: var(--header-bg);
   color: white;
   text-align: center;
-  padding: 40px 20px;
   border-top: 1px solid var(--border);
   transition: background 0.3s ease;
 }
