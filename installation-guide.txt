@@ -25,7 +25,7 @@ INSTALLATION STEPS:
    ├── css/
    │   ├── 00-admin page.css
    │   ├── 01-student page.css
-   │   ├── My course.css
+   │   ├── Assessments.css
    │   ├── courseManagement.css
    │   ├── dashboard.css
    │   ├── index.css
@@ -45,7 +45,8 @@ INSTALLATION STEPS:
        │   ├── admin-manage courses.html
        │   └── student-track grades.html
        ├── Yufeng Wang-html/
-       │   └── My course.html
+       │   └── Admin-Management-Assessments.html
+       │   └── Student-Assessments.html
        └── Zayne-html/
            └── dashboard.html
 
