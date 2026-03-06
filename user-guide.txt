@@ -46,12 +46,12 @@ Access from: student side.html
    - View Overall GPA display
    - Select PDF or CSV from dropdown and click Export (UI only)
 
-2.5 My Course Details (Yufeng's page)
+2.5 Assessments (Yufeng's page)
    - Click "Assessments" in navigation or "Course details" in quick links
    - View course cards grid
    - Use "Stu/Adm" button to toggle between student and admin view
    - Use "Light/Dark" button to toggle theme
-   - In admin view, edit assessment structures
+   - Students can monitor their overall progress via automated calculations derived from grades entered across all course assessment categories
 
 3. ADMIN PORTAL
 ---------------
@@ -68,12 +68,21 @@ Access from: admin side.html
    - Enable/Disable: Click toggle button next to each course
    - Delete: Click delete button next to each course
    - Status badges show Enabled (green) or Disabled (red)
-***********************  need to edit
-3.3 My Course Details (Admin View)
-   - Click "Assessments" in navigation to go to Yufeng's My course.html
-   - Click the "Stu/Adm" button to switch to admin view
-   - In admin view, you can edit assessment structures for courses
-***********************
+
+3.3 Assessments (Yufeng's pages)
+   - Two separate pages:
+     * Student-Assessments.html: Students can view course cards and progress
+     * Admin-Management-Assessments.html: Administrators can edit assessment structures
+   
+   - Admin features:
+     * Add assessment categories (Assignments, Labs, Quizzes, Exams)
+     * Set weight percentages for each category
+     * Add/remove assessment rows
+     * Save changes to assessment structures
+   
+   - Theme toggle: Click "Light/Dark" button to switch between light and dark mode
+   - View toggle: Use "Stu/Adm" button to switch between student and admin views
+   
 4. NAVIGATION NOTES
 ------------------
 - All pages have consistent header and footer navigation
