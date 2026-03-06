@@ -60,38 +60,6 @@ h3 {
     margin-bottom: 2rem;
 }
 
-/* ==================== EDIT COURSE FORM ==================== */
-.edit-course {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.855);
-    margin-bottom: 2rem;
-}
-
-/* ==================== DELETE COURSE FORM ==================== */
-.delete-course {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.855);
-    margin-bottom: 2rem;
-}
-
-.delete-course h2 {
-    color: #e74c3c;
-    border-bottom: 2px solid #e74c3c;
-}
-
-.delete-course input[type="submit"] {
-    background-color: #e74c3c;
-}
-
-.delete-course input[type="submit"]:hover {
-    background-color: #c0392b;
-}
-
-/* ==================== FORM GROUP STYLES (Shared) ==================== */
 .form-group {
     margin-bottom: 1rem;
 }
@@ -103,8 +71,7 @@ h3 {
     color: #2c3e50;
 }
 
-.form-group input,
-.form-group select {
+.form-group input,.form-group select {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ddd;
@@ -113,53 +80,12 @@ h3 {
     box-sizing: border-box;
 }
 
-.form-group input:focus, 
-.form-group select:focus {
+.form-group input:focus, .form-group select:focus {
     outline: none;
     border-color: #e67e22;
     box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
 }
 
-/* ==================== FORM ELEMENTS (For forms without form-group) ==================== */
-.create-course form label,
-.edit-course form label,
-.delete-course form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-.create-course form input[type="text"],
-.edit-course form input[type="text"],
-.delete-course form input[type="text"] {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    margin-bottom: 1rem;
-}
-
-.create-course form input[type="text"]:focus,
-.edit-course form input[type="text"]:focus,
-.delete-course form input[type="text"]:focus {
-    outline: none;
-    border-color: #e67e22;
-    box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
-}
-
-.create-course form input[type="checkbox"],
-.edit-course form input[type="checkbox"] {
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-/* ==================== BUTTON STYLES ==================== */
-.create-course form input[type="submit"],
-.edit-course form input[type="submit"],
-.delete-course form input[type="submit"],
 .btn-create {
     background-color: #27ae60;
     color: white;
@@ -170,60 +96,10 @@ h3 {
     font-size: 1rem;
     font-weight: bold;
     transition: background-color 0.3s;
-    margin-top: 1rem;
 }
 
-.create-course form input[type="submit"]:hover,
 .btn-create:hover {
     background-color: #229954;
-}
-
-.edit-course form input[type="submit"] {
-    background-color: #3498db;
-}
-
-.edit-course form input[type="submit"]:hover {
-    background-color: #2980b9;
-}
-
-.delete-course form input[type="submit"],
-.btn-delete {
-    background-color: #e74c3c;
-}
-
-.delete-course form input[type="submit"]:hover,
-.btn-delete:hover {
-    background-color: #c0392b;
-}
-
-/* Small action buttons for table */
-.action-btn {
-    padding: 0.3rem 0.8rem;
-    margin: 0.1rem 0.2rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.action-btn.btn-toggle {
-    background-color: #f39c12;
-    color: white;
-}
-
-.action-btn.btn-toggle:hover {
-    background-color: #e67e22;
-}
-
-.action-btn.btn-delete {
-    background-color: #e74c3c;
-    color: white;
-}
-
-.action-btn.btn-delete:hover {
-    background-color: #c0392b;
 }
 
 /* ==================== COURSE TABLE ==================== */
@@ -233,7 +109,6 @@ h3 {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     overflow-x: auto;
-    margin-top: 2rem;
 }
 
 table {
@@ -277,6 +152,45 @@ tr:hover {
     border: 1px solid #f5c6cb;
 }
 
+/* Action buttons */
+.action-btn {
+    width: 50%;
+    padding: 0.2rem 0.4rem;
+    margin: 0.1rem 0.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.btn-edit {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #2980b9;
+}
+
+.btn-toggle {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-toggle:hover {
+    background-color: #e67e22;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
 /* Disabled course row styling */
 .disabled-row {
     background-color: #f8f9fa;
@@ -309,13 +223,6 @@ tr:hover {
     display: block;
 }
 
-/* ==================== SPACING ADJUSTMENTS ==================== */
-hr {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 2rem 0;
-}
-
 /* ==================== FOOTER ==================== */
 footer {
     text-align: center;
@@ -326,130 +233,4 @@ footer {
     bottom: 0;
     width: 100%;
     margin-top: 2rem;
-}
-
-/* ==================== UNIVERSAL STYLES FOR ALL PAGES ==================== */
-/* These styles work with any HTML structure - ADDED FOR HANAN'S PAGES */
-
-/* Center the body and all content */
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Center all direct children of body */
-body > * {
-    width: 100%;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    box-sizing: border-box;
-}
-
-/* Style all headings */
-h1 {
-    color: #1a2634;
-    border-bottom: 2px solid #e67e22;
-    padding-bottom: 0.5rem;
-    margin-top: 2rem;
-}
-
-/* Style all forms */
-form {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 1.5rem auto;
-}
-
-/* Style all form labels */
-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-/* Style all text inputs */
-form input[type="text"] {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    margin-bottom: 1rem;
-}
-
-form input[type="text"]:focus {
-    outline: none;
-    border-color: #e67e22;
-    box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
-}
-
-/* Style all checkboxes */
-form input[type="checkbox"] {
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Style all submit buttons */
-form input[type="submit"] {
-    background-color: #27ae60;
-    color: white;
-    border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    margin-top: 1rem;
-}
-
-form input[type="submit"]:hover {
-    background-color: #229954;
-}
-
-/* Special styling for Edit button */
-h2#edit + form input[type="submit"] {
-    background-color: #3498db;
-}
-
-h2#edit + form input[type="submit"]:hover {
-    background-color: #2980b9;
-}
-
-/* Style the navigation menu */
-ul {
-    list-style: none;
-    padding: 1rem 2rem;
-    display: flex;
-    gap: 1rem;
-    background-color: #1a2634;
-    border-radius: 8px;
-    margin: 1rem auto;
-}
-
-ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-}
-
-ul li a:hover {
-    background-color: #2c3e50;
-}
-
-/* Style horizontal rule */
-hr {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 2rem auto;
-    width: 100%;
 }
