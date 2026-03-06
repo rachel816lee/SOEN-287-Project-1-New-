@@ -21,11 +21,11 @@ STUDENT FEATURES:
    - Navigation menu for add/edit/delete
 
 3. Dashboard (Xinlei)
-   - Four course cards with hard-coded data
-   - Each card shows: Past Due, Upcoming(Pending), Upcoming(Completed)
-   - Progress bars with values: 50%, 30%, 70%, 100%
+   - Course cards with hard-coded data 
+   - Each card shows upcoming assessments sorted by: Past Due, Upcoming(Pending), Upcoming(Completed)
+   - Progress bars show the process for each course (hard coded and could change in Deliverable 2)
    - Click on course card opens edit panel
-   - Edit panel with assessment dropdown, status select, notes textarea
+   - Edit panel with assessment dropdown to select which assesment to edit in this course, status select (pending/completed), place to leave notes
    - Save and Cancel buttons
 
 4. Track Grades (Rachel)
@@ -58,6 +58,11 @@ INSTRUCTOR/ADMIN FEATURES:
    - Status badges (Enabled/Disabled)
    - Message area for success/error messages
 
+3. Manage Assessment Structures (Xinlei & Yufeng)
+   - Dropbox to define assessment categories (assignments, labs, exams, etc.)
+   - Place to define their weights
+   - Assessment Completion Statistics bar to visualize usage statistic anonymized
+
 NAVIGATION:
 ----------
 - index.html with links to Student Portal and Admin Portal
@@ -77,7 +82,7 @@ PAGES:
 - instructorManagement.html (Hanan)
 - admin-manage courses.html (Rachel)
 - student-track grades.html (Rachel)
-- Admin-Management-Assessments.html (Yufeng)
+- Admin-Management-Assessments.html (Yufeng & Xinlei)
 - Student-Assessments.html (Yufeng)
 - dashboard.html (Xinlei)
 
@@ -90,7 +95,7 @@ CSS FILES:
 - instructorManagement.css (Rachel)
 - loginPage.css (Rachel)
 - signup.css (Rachel)
-- Assessments-Admin.css (Yufeng)
+- Assessments-Admin.css (Yufeng & Xinlei)
 - Student-Assessments.css (Yufeng)
 - dashboard.css (Xinlei)
 
