@@ -1,0 +1,95 @@
+DELIVERABLE 1 - IMPLEMENTED FEATURES
+=====================================
+
+TEAM MEMBERS:
+- Hanan Sayed (40316818)
+- Yuqian Li (Rachel) (40330774)
+- Xinlei Tian (40293328)
+- Yufeng Wang (40247565)
+
+STUDENT FEATURES:
+-----------------
+1. User Authentication (Hanan)
+   - Login page with username/email and password fields
+   - Sign up page with full name, email, username, password, confirm password
+   - Links between login and signup pages
+
+2. Course Management - Student (Hanan)
+   - Add a course form (course code, name, instructor, term)
+   - Edit a course form (enter course code, update fields)
+   - Delete a course form (enter course code)
+   - Navigation menu for add/edit/delete
+
+3. Dashboard (Xinlei)
+   - Four course cards with hard-coded data
+   - Each card shows: Past Due, Upcoming(Pending), Upcoming(Completed)
+   - Progress bars with values: 50%, 30%, 70%, 100%
+   - Click on course card opens edit panel
+   - Edit panel with assessment dropdown, status select, notes textarea
+   - Save and Cancel buttons
+
+4. Track Grades (Rachel)
+   - Course averages section (hard-coded data via JS)
+   - Overall GPA display
+   - Export section with PDF/CSV dropdown and Export button
+
+5. My Course Page with Admin View (Yufeng)
+   - Course cards grid layout
+   - Assessment structures display
+   - Stu/Adm toggle button to switch between student and admin views
+   - Light/Dark theme toggle button
+   - Admin view allows editing of assessment structures
+   - Slide-in drawer for editing assessments
+
+INSTRUCTOR/ADMIN FEATURES:
+--------------------------
+1. Course Management - Instructor (Hanan)
+   - Create course form with assessment categories (checkboxes)
+   - Edit course form with update categories
+   - Navigation between create and edit
+
+2. Admin Manage Courses (Rachel)
+   - Create course form (merged from Hanan's instructor page)
+   - Edit course form (merged from Hanan's instructor page)
+   - Delete course form with course code input
+   - Courses table with hard-coded data
+   - Enable/Disable buttons for each course
+   - Delete buttons for each course
+   - Status badges (Enabled/Disabled)
+   - Message area for success/error messages
+
+NAVIGATION:
+----------
+- index.html with links to Student Portal and Admin Portal
+- student side.html with links to all student pages
+- admin side.html with links to all admin pages
+- Consistent header and footer across all pages
+- All pages link back to index.html via Home button
+
+PAGES:
+------
+- index.html (Rachel)
+- student side.html (Rachel)
+- admin side.html (Rachel)
+- loginPage.html (Hanan)
+- signup.html (Hanan)
+- courseManagement.html (Hanan)
+- instructorManagement.html (Hanan)
+- admin-manage courses.html (Rachel)
+- student-track grades.html (Rachel)
+- My course.html (Yufeng)
+- dashboard.html (Xinlei)
+
+CSS FILES:
+----------
+- 00-admin page.css (Rachel)
+- 01-student page.css (Rachel)
+- index.css (Rachel)
+- courseManagement.css (Rachel)
+- instructorManagement.css (Rachel)
+- loginPage.css (Rachel)
+- signup.css (Rachel)
+- My course.css (Yufeng)
+- dashboard.css (Xinlei)
+
+NOTE: This is Deliverable 1 - Frontend only. All data is hard-coded.

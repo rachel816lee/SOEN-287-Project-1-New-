@@ -1,0 +1,90 @@
+USER GUIDE - SMART COURSE COMPANION
+====================================
+Deliverable 1 - Frontend Only
+
+TEAM MEMBERS:
+- Hanan Sayed (40316818)
+- Yuqian Li (Rachel) (40330774)
+- Xinlei Tian (40293328)
+- Yufeng Wang (40247565)
+
+1. GETTING STARTED
+------------------
+- Open index.html in your browser
+- Click "Student Portal" (blue button) for student features
+- Click "Admin Portal" (orange button) for admin features
+- Use "Home" button on any page to return to index.html
+
+2. STUDENT PORTAL
+-----------------
+Access from: student side.html
+
+2.1 Login/Sign Up (Hanan's pages)
+   - Click "Login" to go to loginPage.html
+   - Enter username/email and password (hard-coded)
+   - Click "Sign up here" to go to signup.html
+   - Fill in all fields to create an account
+
+2.2 Course Management (Hanan's pages)
+   - Click "My course" in navigation or "My course (Add/Edit/Delete)" in quick links
+   - Add a Course: Fill in course code, name, instructor, term → Click "Add Course"
+   - Edit a Course: Enter course code, update fields → Click "Save Changes"
+   - Delete a Course: Enter course code → Click "Delete Course"
+
+2.3 Dashboard (Xinlei's page)
+   - Click "Dashboard" in navigation or "View dashboard" in quick links
+   - View four course cards with hard-coded data
+   - Each card shows: Past Due, Upcoming(Pending), Upcoming(Completed)
+   - Progress bars show completion (50%, 30%, 70%, 100%)
+   - Click any course card to open edit panel on the right
+   - Edit panel: select assessment, change status (Pending/Completed), add notes
+   - Click Save or Cancel to close panel
+
+2.4 Track Grades (Rachel's page)
+   - Click "Track grades" in navigation or "Track your grades" in quick links
+   - View course averages (hard-coded via JavaScript)
+   - View Overall GPA display
+   - Select PDF or CSV from dropdown and click Export (UI only)
+
+2.5 My Course Details (Yufeng's page)
+   - Click "Assessments" in navigation or "Course details" in quick links
+   - View course cards grid
+   - Use "Stu/Adm" button to toggle between student and admin view
+   - Use "Light/Dark" button to toggle theme
+   - In admin view, edit assessment structures
+
+3. ADMIN PORTAL
+---------------
+Access from: admin side.html
+
+3.1 Create/Edit Courses (Hanan's page)
+   - Click "Create/Edit" in navigation or "Create/Edit courses" in quick links
+   - Create Course: Fill in details, check assessment categories → Click "Create Course"
+   - Edit Course: Enter course code, update fields, check categories → Click "Save Changes"
+
+3.2 Manage Courses (Rachel's page)
+   - Click "Manage Courses" in navigation or "Manage Courses" in quick links
+   - View all courses in table format
+   - Enable/Disable: Click toggle button next to each course
+   - Delete: Click delete button next to each course
+   - Status badges show Enabled (green) or Disabled (red)
+***********************  need to edit
+3.3 My Course Details (Admin View)
+   - Click "Assessments" in navigation to go to Yufeng's My course.html
+   - Click the "Stu/Adm" button to switch to admin view
+   - In admin view, you can edit assessment structures for courses
+***********************
+4. NAVIGATION NOTES
+------------------
+- All pages have consistent header and footer navigation
+- Student pages link to: Home, Dashboard, My course, Track grades, Assessments
+- Admin pages link to: Home, Dashboard, Manage Courses, Assessments
+- Home button on all pages returns to index.html
+
+5. DELIVERABLE 1 NOTES
+------------------
+- This is a frontend-only prototype
+- All data is hard-coded (no real database)
+- JavaScript provides UI interaction (panels, toggles) but no backend
+- Buttons may show UI changes but do not save data permanently
+- Full functionality with backend will come in Deliverable 2

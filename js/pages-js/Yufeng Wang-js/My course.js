@@ -26,133 +26,141 @@ const overlay = document.getElementById("overlay");
 const drawerClose = document.getElementById("drawerClose");
 const drawerTitle = document.getElementById("drawerTitle");
 const drawerName = document.getElementById("drawerName");
-
 const structureList = document.getElementById("structureList");
 const addMore = document.getElementById("addMore");
 const cancelBtn = document.getElementById("cancelBtn");
 const saveBtn = document.getElementById("saveBtn");
 
-// Admin page elements
+/* Admin page elements */
 const adminStructureList = document.getElementById("adminStructureList");
 const adminAddMore = document.getElementById("adminAddMore");
 const adminCancel = document.getElementById("adminCancel");
 const adminSave = document.getElementById("adminSave");
 
-function renderCourses() {
-  courseGrid.innerHTML = "";
-  courses.forEach((c) => {
-    const card = document.createElement("div");
-    card.className = "course-card";
-    card.innerHTML = `
-      <div class="course-title">
-        <span class="badge">${c.id}</span>
-        <span>${c.name}</span>
-      </div>
-      <div class="sub-label">Usage Statistics</div>
-      <div class="progress-wrap">
-        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${c.progress}">
-          <div class="bar" style="width:${c.progress}%"></div>
-        </div>
-      </div>
-    `;
-    card.addEventListener("click", () => openDrawerForCourse(c));
-    courseGrid.appendChild(card);
-  });
+
+const mainTitle = document.getElementById("main-title");
+const navStu = document.getElementById("nav-student");
+const navAdm = document.getElementById("nav-admin");
+const footStu = document.getElementById("footer-student");
+const footAdm = document.getElementById("footer-admin");
+
+
+function switchPage(page) {
+  if (page === "admin") {
+    pageStudent.classList.add("hidden");
+    pageAdmin.classList.remove("hidden");
+    
+    document.body.classList.replace("role-student", "role-admin");
+    if (mainTitle) mainTitle.innerText = "Smart Course Companion - Admin Panel";
+    
+    if (navStu) navStu.classList.add("hidden");
+    if (navAdm) navAdm.classList.remove("hidden");
+    if (footStu) footStu.classList.add("hidden");
+    if (footAdm) footAdm.classList.remove("hidden");
+    
+  } else {
+    pageAdmin.classList.add("hidden");
+    pageStudent.classList.remove("hidden");
+    
+    document.body.classList.replace("role-admin", "role-student");
+    if (mainTitle) mainTitle.innerText = "Smart Course Companion";
+    
+    if (navAdm) navAdm.classList.add("hidden");
+    if (navStu) navStu.classList.remove("hidden");
+    if (footAdm) footAdm.classList.add("hidden");
+    if (footStu) footStu.classList.remove("hidden");
+  }
 }
 
-function createStructureRow(index, container) {
-  const row = document.createElement("div");
-  row.className = "structure-row";
 
-  const idx = document.createElement("div");
-  idx.className = "idx";
-  idx.textContent = String(index);
+function toggleTheme() {
+  const isLight = document.body.classList.contains("theme-light");
+  if (isLight) {
+    document.body.classList.replace("theme-light", "theme-dark");
+    themeToggle.innerText = "Dark/Light";
+  } else {
+    document.body.classList.replace("theme-dark", "theme-light");
+    themeToggle.innerText = "Light/Dark";
+  }
+}
 
-  const select = document.createElement("select");
-  select.className = "select";
-  select.style.borderRadius = "12px";
-  select.style.padding = "12px";
-  select.innerHTML = `<option value="" selected>-- enter the categories here --</option>` +
-    categories.map((c) => `<option value="${c}">${c}</option>`).join("");
+function openDrawer(courseName) {
+  drawerTitle.innerText = `Edit: ${courseName}`;
+  drawerName.value = courseName;
+  resetStructureList(structureList);
+  drawer.setAttribute("aria-hidden", "false");
+  overlay.classList.remove("hidden");
+}
 
-  const weight = document.createElement("input");
-  weight.className = "input";
-  weight.type = "number";
-  weight.min = "0";
-  weight.max = "100";
-  weight.placeholder = "-- enter the weighting here --";
-
-  row.appendChild(idx);
-  row.appendChild(select);
-  row.appendChild(weight);
-
-  container.appendChild(row);
+function closeDrawer() {
+  drawer.setAttribute("aria-hidden", "true");
+  overlay.classList.add("hidden");
 }
 
 function resetStructureList(container) {
   container.innerHTML = "";
   createStructureRow(1, container);
-  createStructureRow(2, container);
-  createStructureRow(3, container);
 }
 
-function openDrawerForCourse(course) {
-  drawerTitle.textContent = `Edit Course Assessment — ${course.name}`;
-  drawerName.value = course.name;
-
-  resetStructureList(structureList);
-
-  drawer.classList.add("open");
-  overlay.classList.remove("hidden");
-  drawer.setAttribute("aria-hidden", "false");
-}
-
-function closeDrawer() {
-  drawer.classList.remove("open");
-  overlay.classList.add("hidden");
-  drawer.setAttribute("aria-hidden", "true");
-}
-
-function switchPage(value) {
-  if (value === "student") {
-    pageStudent.classList.remove("hidden");
-    pageAdmin.classList.add("hidden");
-  } else {
-    pageAdmin.classList.remove("hidden");
-    pageStudent.classList.add("hidden");
-  }
-}
-
-function toggleTheme() {
-  const body = document.body;
-  const isDark = body.classList.contains("theme-dark");
-  body.classList.toggle("theme-dark", !isDark);
-  body.classList.toggle("theme-light", isDark);
+function createStructureRow(index, container) {
+  const row = document.createElement("div");
+  row.className = "structure-row";
+  
+  const idx = document.createElement("div");
+  idx.className = "idx";
+  idx.innerText = index;
+  
+  const sel = document.createElement("select");
+  sel.className = "input";
+  categories.forEach(cat => {
+    const opt = document.createElement("option");
+    opt.value = cat;
+    opt.innerText = cat;
+    sel.appendChild(opt);
+  });
+  
+  const weight = document.createElement("input");
+  weight.type = "number";
+  weight.className = "input weight-input";
+  weight.placeholder = "%";
+  
+  row.appendChild(idx);
+  row.appendChild(sel);
+  row.appendChild(weight);
+  container.appendChild(row);
 }
 
 function collectWeights(container) {
-  const rows = [...container.querySelectorAll(".structure-row")];
-  const items = rows.map((r) => {
-    const sel = r.querySelector("select")?.value || "";
-    const w = Number(r.querySelector("input")?.value || 0);
-    return { category: sel, weight: w };
+  const inputs = container.querySelectorAll(".weight-input");
+  let sum = 0;
+  inputs.forEach(i => {
+    sum += parseFloat(i.value || 0);
   });
-  const sum = items.reduce((acc, it) => acc + (Number.isFinite(it.weight) ? it.weight : 0), 0);
-  return { items, sum };
+  return { sum };
 }
 
-/* Events */
+/* Initialize grid */
+courses.forEach(c => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <h2>${c.name}</h2>
+    <p>Overall Progress: ${c.progress}%</p>
+  `;
+  card.addEventListener("click", () => openDrawer(c.name));
+  courseGrid.appendChild(card);
+});
+
+/* Listeners */
 pageSelect.addEventListener("change", (e) => switchPage(e.target.value));
 
 roleToggle.addEventListener("click", () => {
-  // For Deliverable 1 prototype: just toggles the select page to match role
   const now = pageSelect.value === "student" ? "admin" : "student";
   pageSelect.value = now;
   switchPage(now);
 });
 
 themeToggle.addEventListener("click", toggleTheme);
-
 drawerClose.addEventListener("click", closeDrawer);
 overlay.addEventListener("click", closeDrawer);
 cancelBtn.addEventListener("click", closeDrawer);
@@ -183,11 +191,9 @@ adminCancel.addEventListener("click", () => {
 
 adminSave.addEventListener("click", () => {
   const { sum } = collectWeights(adminStructureList);
-  alert(`Saved (prototype). Total weighting = ${sum}%.`);
+  if (sum !== 100) {
+    alert(`Warning: Total weighting is ${sum}%. Usually it should be 100%.`);
+  } else {
+    alert("Saved assessment structure.");
+  }
 });
-
-renderCourses();
-switchPage("student");
-
-
-
