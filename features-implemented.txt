@@ -90,7 +90,8 @@ CSS FILES:
 - instructorManagement.css (Rachel)
 - loginPage.css (Rachel)
 - signup.css (Rachel)
-- Assessments.css (Yufeng)
+- Assessments-Admin.css (Yufeng)
+- Student-Assessments.css (Yufeng)
 - dashboard.css (Xinlei)
 
 NOTE: This is Deliverable 1 - Frontend only. All data is hard-coded.
