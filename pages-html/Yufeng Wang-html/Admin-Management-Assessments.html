@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Smart Course Companion - Admin</title>
-  <link rel="stylesheet" href="../../css/Assessments.css" />
+  <link rel="stylesheet" href="../../css/Assessments-Admin.css" />
 </head>
 
 <body class="theme-light role-admin">
@@ -16,18 +16,18 @@
     <nav id="nav-admin" class="main-nav">
       <a href="admin-home.html">Home</a>
       <a href="admin-dashboard.html">Dashboard</a>
-      <a href="admin-manage%20courses.html">Manage Courses</a>
+      <a href="admin-manage-courses.html">Manage Courses</a>
       <a href="Admin-Management-Assessments.html" class="active">Manage Assessments</a>
     </nav>
 
-    <div class="top-actions">
+        <!-- <div class="top-actions">
       <select id="pageSelect" class="select">
         <option value="student">Student Dashboard</option>
         <option value="admin" selected>Admin: Edit Assessment Structure</option>
       </select>
       <button id="roleToggle" class="pill" type="button">Stu/Adm</button>
       <button id="themeToggle" class="pill" type="button">Light/Dark</button>
-    </div>
+    </div> -->
   </header>
 
   <main class="shell">
@@ -39,28 +39,72 @@
             <label for="adminCourseName">Name</label>
             <input id="adminCourseName" class="input" placeholder="Enter course name..." />
           </div>
-          <h3>Assessment Structures</h3>
+          <!-- <h3>Assessment Structures</h3> -->
           <div id="adminStructureList" class="structure-list"></div>
-          <button id="adminAddMore" class="btn-secondary" type="button">+ Add More</button>
+
+          
+          
+          <button id="adminAddMore" class="btn-secondary" type="button">Add More</button>
+
+          
+
           <div class="form-actions">
             <button id="adminCancel" class="btn-secondary" type="button">Cancel</button>
             <button id="adminSave" class="btn-primary" type="button">Save</button>
           </div>
+
+          <!-- usage statistics ("briefly represent, specific assessment name could connect later with js") -->
+          <section class="stats-card">
+          <h3>Assessment Completion Statistics</h3>
+
+          <div class="progress-item">
+            <div class="progress-label">
+              <span>assessment 1</span>
+              <span>75%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width: 75%;"></div>
+            </div>
+            <p class="progress-note">75 out of 100 students completed this assessment.</p>
+          </div>
+
+          <div class="progress-item">
+            <div class="progress-label">
+              <span>assessment 2</span>
+              <span>52%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width: 52%;"></div>
+            </div>
+            <p class="progress-note">52 out of 100 students completed this assessment.</p>
+          </div>
+
+          <div class="progress-item">
+            <div class="progress-label">
+              <span>assessment 3</span>
+              <span>30%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width: 30%;"></div>
+            </div>
+            <p class="progress-note">30 out of 100 students completed this assessment.</p>
+          </div>
+        </section>
+
         </div>
       </section>
     </section>
   </main>
 
   <footer class="global-footer">
-    <nav>
-      <a href="admin-home.html">Home</a>
-      <a href="admin-dashboard.html">Dashboard</a>
-      <a href="admin-courses.html">Manage Courses</a>
-      <a href="track-grades.html">Track grades</a>
-      <a href="Student-Assessments.html">Assessments</a>
-    </nav>
-    <p>&copy; 2026 Smart Course Companion - Admin Panel</p>
-  </footer>
+  <nav>
+    <a href="admin-home.html">Home</a>
+    <a href="admin-dashboard.html">Dashboard</a>
+    <a href="admin-manage-courses.html">Manage Courses</a>
+    <a href="Admin-Management-Assessments.html" class="active">Manage Assessments</a>
+  </nav>
+  <p>&copy; 2026 Smart Course Companion - Admin Panel</p>
+</footer>
 
   <script src="../../js/pages-js/Yufeng%20Wang-js/Assessments.js"></script>
 </body>
