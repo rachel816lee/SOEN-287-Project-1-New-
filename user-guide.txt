@@ -33,9 +33,9 @@ Access from: student side.html
 
 2.3 Dashboard (Xinlei's page)
    - Click "Dashboard" in navigation or "View dashboard" in quick links
-   - View four course cards with hard-coded data
-   - Each card shows: Past Due, Upcoming(Pending), Upcoming(Completed)
-   - Progress bars show completion (50%, 30%, 70%, 100%)
+   - View course cards with hard-coded data
+   - Each card shows upcoming assessments of the course sorted by: Past Due, Upcoming(Pending), Upcoming(Completed)
+   - Progress bars show completion (e.g. 50%, 30%, 70%, 100%)
    - Click any course card to open edit panel on the right
    - Edit panel: select assessment, change status (Pending/Completed), add notes
    - Click Save or Cancel to close panel
@@ -48,6 +48,7 @@ Access from: student side.html
 
 2.5 Assessments (Yufeng's page)
    - Click "Assessments" in navigation or "Course details" in quick links
+   - Students can view course cards and progress
    - View course cards grid
    - Use "Stu/Adm" button to toggle between student and admin view
    - Use "Light/Dark" button to toggle theme
@@ -69,17 +70,13 @@ Access from: admin side.html
    - Delete: Click delete button next to each course
    - Status badges show Enabled (green) or Disabled (red)
 
-3.3 Assessments (Yufeng's pages)
-   - Two separate pages:
-     * Student-Assessments.html: Students can view course cards and progress
-     * Admin-Management-Assessments.html: Administrators can edit assessment structures
-   
+3.3 Assessments (Yufeng + Xinlei pages)
+   - Administrators can edit assessment structures
    - Admin features:
      * Add assessment categories (Assignments, Labs, Quizzes, Exams)
      * Set weight percentages for each category
      * Add/remove assessment rows
      * Save changes to assessment structures
-   
    - Theme toggle: Click "Light/Dark" button to switch between light and dark mode
    - View toggle: Use "Stu/Adm" button to switch between student and admin views
    
