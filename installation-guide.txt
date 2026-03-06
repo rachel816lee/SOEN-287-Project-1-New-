@@ -25,7 +25,8 @@ INSTALLATION STEPS:
    ├── css/
    │   ├── 00-admin page.css
    │   ├── 01-student page.css
-   │   ├── Assessments.css
+   │   ├── Assessments-Admin.css
+   │   ├── Student-Assessments.css
    │   ├── courseManagement.css
    │   ├── dashboard.css
    │   ├── index.css
