@@ -11,10 +11,11 @@
     <header>
         <h1>Smart Course Companion - Admin Panel</h1>
         <nav>
-            <a href="admin-home.html">Home</a>
-            <a href="admin-dashboard.html">Dashboard</a>
-            <a href="admin-manage courses.html" class="active">Manage Courses</a>
-            <a href="admin-assessments.html">Manage Assessments</a>
+            <a href="../../index.html">Home</a>
+            <a href="../Zayne-html/dashboard.html">Dashboard</a>
+            <a href="../Rachel-html/admin-manage courses.html" class="active">Manage Courses</a>
+            <a href=" ">Manage Assessments</a>
+            
         </nav>
     </header>
 
@@ -23,10 +24,10 @@
         <h2>Course Management</h2>
         
         <!-- =============================================== -->
-        <!-- HANAN'S PART: Add a Course (ONLY - NO DELETE)    -->
+        <!-- HANAN'S PART: Create Course (from instructorManagement.html) -->
         <!-- =============================================== -->
         <section class="create-course">
-            <h3 id="add">Add a Course</h3>
+            <h2 id="create">Create a Course</h2>
             <form>
                 <label>Course Code:</label><br>
                 <input type="text" required><br><br>
@@ -34,21 +35,29 @@
                 <label>Course Name:</label><br>
                 <input type="text" required><br><br>
 
-                <label>Instructor:</label><br>
+                <label>Instructor Name:</label><br>
                 <input type="text" required><br><br>
 
                 <label>Term:</label><br>
                 <input type="text" required><br><br>
 
-                <input type="submit" value="Add Course">
+                <label>Assessment Categories:</label><br>
+                <input type="checkbox"> Assignments<br>
+                <input type="checkbox"> Labs<br>
+                <input type="checkbox"> Quizzes<br>
+                <input type="checkbox"> Exams<br><br>
+
+                <input type="submit" value="Create Course">
             </form>
         </section>
 
+        <hr>
+
         <!-- =============================================== -->
-        <!-- HANAN'S PART: Edit a Course (ONLY - NO DELETE)   -->
+        <!-- HANAN'S PART: Edit Course (from instructorManagement.html) -->
         <!-- =============================================== -->
         <section class="edit-course">
-            <h3 id="edit">Edit a Course</h3>
+            <h2 id="edit">Edit a Course</h2>
             <form>
                 <label>Enter Course Code to Edit:</label><br>
                 <input type="text" required><br><br>
@@ -56,21 +65,29 @@
                 <label>New Course Name:</label><br>
                 <input type="text"><br><br>
 
-                <label>New Instructor:</label><br>
+                <label>New Instructor Name:</label><br>
                 <input type="text"><br><br>
 
                 <label>New Term:</label><br>
                 <input type="text"><br><br>
 
+                <label>Update Assessment Categories:</label><br>
+                <input type="checkbox"> Assignments<br>
+                <input type="checkbox"> Labs<br>
+                <input type="checkbox"> Quizzes<br>
+                <input type="checkbox"> Exams<br><br>
+
                 <input type="submit" value="Save Changes">
             </form>
         </section>
+
+        <hr>
 
         <!-- =============================================== -->
         <!-- RACHEL'S PART: Delete a Course                    -->
         <!-- =============================================== -->
         <section class="delete-course">
-            <h3 id="delete">Delete a Course</h3>
+            <h2 id="delete">Delete a Course</h2>
             <form id="deleteCourseForm">
                 <label>Course Code:</label><br>
                 <input type="text" id="deleteCourseCode" placeholder="Enter course code to delete" required><br><br>
@@ -80,8 +97,6 @@
 
         <!-- =============================================== -->
         <!-- RACHEL'S PART: Hidden Form for Create Course (ID for JS) -->
-        <!-- This provides the createCourseForm ID needed by admin-courses.js -->
-        <!-- without duplicating Hanan's visual form -->
         <!-- =============================================== -->
         <section style="display: none;">
             <form id="createCourseForm"></form>
@@ -108,13 +123,7 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody id="coursesBody">
-                    <!-- Table body will be populated by JavaScript -->
-                    <!-- The Actions column contains ONLY: -->
-                    <!-- - Toggle button (Enable/Disable) - Rachel's part -->
-                    <!-- - Delete button - Rachel's part -->
-                    <!-- NO Edit button -->
-                </tbody>
+                <tbody id="coursesBody"></tbody>
             </table>
         </section>
     </main>
@@ -122,15 +131,13 @@
     <!-- ==================== FOOTER ==================== -->
     <footer>
         <nav>
-            <a href="admin-home.html">Home</a>
-            <a href="admin-dashboard.html">Dashboard</a>
-            <a href="admin-courses.html" class="active">Manage Courses</a>
-            <a href="admin-assessments.html">Manage Assessments</a>
-        </nav>
+            <a href="../../index.html">Home</a>
+            <a href="../Zayne-html/dashboard.html">Dashboard</a>
+            <a href="../Rachel-html/admin-manage courses.html" class="active">Manage Courses</a>
+            <a href=" ">Manage Assessments</a>
         <p>&copy; 2026 Smart Course Companion - Admin Panel</p>
     </footer>
 
-    <!-- Link to Rachel's JavaScript file -->
     <script src="../../js/pages-js/Rachel-js/admin-courses.js"></script>
 </body>
 </html>
