@@ -120,7 +120,7 @@ h3 {
     box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
 }
 
-/* ==================== FORM ELEMENTS (For Hanan's forms without form-group) ==================== */
+/* ==================== FORM ELEMENTS (For forms without form-group) ==================== */
 .create-course form label,
 .edit-course form label,
 .delete-course form label {
@@ -328,10 +328,10 @@ footer {
     margin-top: 2rem;
 }
 
-/* ==================== UNIVERSAL CENTERING STYLES ==================== */
-/* These styles center all content on pages without a main container */
+/* ==================== UNIVERSAL STYLES FOR ALL PAGES ==================== */
+/* These styles work with any HTML structure - ADDED FOR HANAN'S PAGES */
 
-/* Center the body and all its children */
+/* Center the body and all content */
 body {
     display: flex;
     flex-direction: column;
@@ -349,6 +349,14 @@ body > * {
     box-sizing: border-box;
 }
 
+/* Style all headings */
+h1 {
+    color: #1a2634;
+    border-bottom: 2px solid #e67e22;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
 /* Style all forms */
 form {
     background-color: white;
@@ -356,6 +364,64 @@ form {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 1.5rem auto;
+}
+
+/* Style all form labels */
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Style all text inputs */
+form input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+    border-color: #e67e22;
+    box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
+}
+
+/* Style all checkboxes */
+form input[type="checkbox"] {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Style all submit buttons */
+form input[type="submit"] {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+form input[type="submit"]:hover {
+    background-color: #229954;
+}
+
+/* Special styling for Edit button */
+h2#edit + form input[type="submit"] {
+    background-color: #3498db;
+}
+
+h2#edit + form input[type="submit"]:hover {
+    background-color: #2980b9;
 }
 
 /* Style the navigation menu */
@@ -378,14 +444,6 @@ ul li a {
 
 ul li a:hover {
     background-color: #2c3e50;
-}
-
-/* Style headings */
-h1 {
-    color: #1a2634;
-    border-bottom: 2px solid #e67e22;
-    padding-bottom: 0.5rem;
-    margin-top: 2rem;
 }
 
 /* Style horizontal rule */
