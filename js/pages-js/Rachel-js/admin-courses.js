@@ -1,6 +1,6 @@
 // admin-courses.js - Admin Course Management
 // Deliverable 1 - Frontend with hard-coded data
-// Rachel's part: Delete and Enable/Disable functions only
+// RACHEL'S PART: Delete, Enable/Disable, Edit, and Create functions
 
 // ============================================
 // HARD-CODED COURSES DATA (for Deliverable 1)
@@ -28,7 +28,7 @@ let courses = [
         name: "Data Structures",
         instructor: "Dr. Probst",
         term: "Winter 2026",
-        status: "disabled"  // This course is disabled
+        status: "disabled"
     },
     {
         id: 4,
@@ -52,10 +52,6 @@ let courses = [
 // DISPLAY COURSES IN TABLE
 // ============================================
 
-/**
- * Display all courses in the table
- * This function is called whenever courses are added, deleted, or toggled
- */
 function displayCourses() {
     const tableBody = document.getElementById('coursesBody');
     
@@ -66,17 +62,12 @@ function displayCourses() {
     
     let html = '';
     courses.forEach(course => {
-        // Determine status badge class
         const statusClass = course.status === 'enabled' ? 'status-enabled' : 'status-disabled';
         const statusText = course.status === 'enabled' ? 'Enabled' : 'Disabled';
-        
-        // Add special class for disabled rows
         const rowClass = course.status === 'disabled' ? 'disabled-row' : '';
-        
-        // Toggle button text depends on current status
         const toggleButtonText = course.status === 'enabled' ? 'Disable' : 'Enable';
         
-        // RACHEL'S PART: Actions column only has Toggle and Delete buttons (NO EDIT)
+        // RACHEL'S PART: Actions column now has Edit, Toggle, and Delete buttons
         html += `
             <tr class="${rowClass}" data-course-id="${course.id}">
                 <td><strong>${course.code}</strong></td>
@@ -87,6 +78,7 @@ function displayCourses() {
                     <span class="status-badge ${statusClass}">${statusText}</span>
                 </td>
                 <td>
+                    <button class="action-btn btn-edit" onclick="editCourse('${course.code}')">Edit</button>
                     <button class="action-btn btn-toggle" onclick="toggleCourseStatus(${course.id})">${toggleButtonText}</button>
                     <button class="action-btn btn-delete" onclick="deleteCourse(${course.id})">Delete</button>
                 </td>
@@ -98,39 +90,84 @@ function displayCourses() {
 }
 
 // ============================================
-// CREATE COURSE - This is for Hanan's part
-// The form ID is provided by Rachel's hidden form
+// RACHEL'S PART: EDIT COURSE FUNCTION
 // ============================================
 
 /**
- * Handle form submission to create a new course
+ * Edit a course - fills the edit form with current course data
  */
-document.getElementById('createCourseForm').addEventListener('submit', function(event) {
-    // Prevent the form from actually submitting (refreshing the page)
-    event.preventDefault();
+function editCourse(courseCode) {
+    const course = courses.find(c => c.code === courseCode);
     
-    // Get form values from Hanan's form
-    // Note: Hanan's form doesn't have IDs, so we need to get elements by other means
-    const forms = document.getElementsByTagName('form');
-    let courseCode = '', courseName = '', instructor = '', term = '';
-    
-    // Find Hanan's Add Course form (the first form in the page)
-    for (let i = 0; i < forms.length; i++) {
-        const labels = forms[i].getElementsByTagName('label');
-        if (labels.length > 0 && labels[0].textContent.includes('Course Code')) {
-            // This is likely Hanan's Add Course form
-            const inputs = forms[i].getElementsByTagName('input');
-            if (inputs.length >= 4) {
-                courseCode = inputs[0].value.trim();
-                courseName = inputs[1].value.trim();
-                instructor = inputs[2].value.trim();
-                term = inputs[3].value.trim();
-            }
-            break;
-        }
+    if (!course) {
+        showMessage(`Course ${courseCode} not found!`, 'error');
+        return;
     }
     
-    // Validate form
+    // Fill the edit form with current course data
+    document.getElementById('editCourseCode').value = course.code;
+    document.getElementById('editCourseName').value = course.name;
+    document.getElementById('editInstructor').value = course.instructor;
+    document.getElementById('editTerm').value = course.term;
+    
+    // Scroll to edit form
+    document.getElementById('edit').scrollIntoView({ behavior: 'smooth' });
+    
+    showMessage(`Editing course: ${course.code}. Make changes and click Save Changes.`, 'success');
+}
+
+/**
+ * Handle Edit Course form submission
+ */
+function handleEditCourse(event) {
+    event.preventDefault();
+    
+    const courseCode = document.getElementById('editCourseCode').value.trim();
+    const newName = document.getElementById('editCourseName').value.trim();
+    const newInstructor = document.getElementById('editInstructor').value.trim();
+    const newTerm = document.getElementById('editTerm').value.trim();
+    
+    if (!courseCode) {
+        showMessage('Please enter a course code to edit.', 'error');
+        return;
+    }
+    
+    // Find the course
+    const courseIndex = courses.findIndex(c => c.code === courseCode);
+    
+    if (courseIndex === -1) {
+        showMessage(`Course ${courseCode} not found!`, 'error');
+        return;
+    }
+    
+    // Update fields (only if new values are provided)
+    if (newName) courses[courseIndex].name = newName;
+    if (newInstructor) courses[courseIndex].instructor = newInstructor;
+    if (newTerm) courses[courseIndex].term = newTerm;
+    
+    // Clear the edit form
+    document.getElementById('editCourseName').value = '';
+    document.getElementById('editInstructor').value = '';
+    document.getElementById('editTerm').value = '';
+    
+    // Refresh the table
+    displayCourses();
+    
+    showMessage(`Course ${courseCode} updated successfully!`, 'success');
+}
+
+// ============================================
+// RACHEL'S PART: CREATE COURSE
+// ============================================
+
+function handleCreateCourse(event) {
+    event.preventDefault();
+    
+    const courseCode = document.getElementById('createCourseCode').value.trim();
+    const courseName = document.getElementById('createCourseName').value.trim();
+    const instructor = document.getElementById('createInstructor').value.trim();
+    const term = document.getElementById('createTerm').value.trim();
+    
     if (!courseCode || !courseName || !instructor || !term) {
         showMessage('Please fill in all fields.', 'error');
         return;
@@ -143,39 +180,35 @@ document.getElementById('createCourseForm').addEventListener('submit', function(
         return;
     }
     
-    // Create new course object
     const newCourse = {
         id: generateNewId(),
         code: courseCode,
         name: courseName,
         instructor: instructor,
         term: term,
-        status: 'enabled'  // New courses are enabled by default
+        status: 'enabled'
     };
     
-    // Add to courses array
     courses.push(newCourse);
     
-    // Clear Hanan's form
-    const inputs = document.querySelector('.create-course form').getElementsByTagName('input');
-    for (let i = 0; i < inputs.length; i++) {
-        inputs[i].value = '';
-    }
+    // Clear the create form
+    document.getElementById('createCourseCode').value = '';
+    document.getElementById('createCourseName').value = '';
+    document.getElementById('createInstructor').value = '';
+    document.getElementById('createTerm').value = '';
     
-    // Refresh the table
+    // Clear checkboxes (HANAN'S PART - assessment categories)
+    document.getElementById('catAssignments').checked = false;
+    document.getElementById('catLabs').checked = false;
+    document.getElementById('catQuizzes').checked = false;
+    document.getElementById('catExams').checked = false;
+    
     displayCourses();
-    
-    // Show success message
     showMessage(`Course ${courseCode} created successfully!`, 'success');
-});
+}
 
-/**
- * Generate a new unique ID for a course
- */
 function generateNewId() {
     if (courses.length === 0) return 1;
-    
-    // Find the maximum ID and add 1
     const maxId = Math.max(...courses.map(c => c.id));
     return maxId + 1;
 }
@@ -184,34 +217,18 @@ function generateNewId() {
 // RACHEL'S PART: DELETE COURSE
 // ============================================
 
-/**
- * Delete a course by ID (from table button)
- */
 function deleteCourse(courseId) {
-    // Find the course to delete
     const courseToDelete = courses.find(c => c.id === courseId);
-    
     if (!courseToDelete) return;
     
-    // Ask for confirmation (good practice for delete operations)
-    const confirmDelete = confirm(`Are you sure you want to delete course ${courseToDelete.code}?`);
-    
-    if (confirmDelete) {
-        // Filter out the course with the given ID
+    if (confirm(`Are you sure you want to delete course ${courseToDelete.code}?`)) {
         courses = courses.filter(course => course.id !== courseId);
-        
-        // Refresh the table
         displayCourses();
-        
-        // Show success message
         showMessage(`Course ${courseToDelete.code} deleted successfully!`, 'success');
     }
 }
 
-/**
- * Handle Delete Course form submission
- */
-document.getElementById('deleteCourseForm').addEventListener('submit', function(event) {
+function handleDeleteCourse(event) {
     event.preventDefault();
     
     const deleteCode = document.getElementById('deleteCourseCode').value.trim();
@@ -221,7 +238,6 @@ document.getElementById('deleteCourseForm').addEventListener('submit', function(
         return;
     }
     
-    // Find the course with matching code
     const courseToDelete = courses.find(c => c.code === deleteCode);
     
     if (!courseToDelete) {
@@ -229,45 +245,25 @@ document.getElementById('deleteCourseForm').addEventListener('submit', function(
         return;
     }
     
-    // Confirm deletion
-    const confirmDelete = confirm(`Are you sure you want to delete course ${deleteCode}?`);
-    
-    if (confirmDelete) {
-        // Filter out the course
+    if (confirm(`Are you sure you want to delete course ${deleteCode}?`)) {
         courses = courses.filter(course => course.code !== deleteCode);
-        
-        // Refresh the table
-        displayCourses();
-        
-        // Clear the form
         document.getElementById('deleteCourseCode').value = '';
-        
-        // Show success message
+        displayCourses();
         showMessage(`Course ${deleteCode} deleted successfully!`, 'success');
     }
-});
+}
 
 // ============================================
 // RACHEL'S PART: ENABLE/DISABLE COURSE
 // ============================================
 
-/**
- * Toggle course status between enabled and disabled
- */
 function toggleCourseStatus(courseId) {
-    // Find the course
     const course = courses.find(c => c.id === courseId);
-    
     if (!course) return;
     
-    // Toggle the status
-    const oldStatus = course.status;
     course.status = course.status === 'enabled' ? 'disabled' : 'enabled';
-    
-    // Refresh the table
     displayCourses();
     
-    // Show success message
     const action = course.status === 'enabled' ? 'enabled' : 'disabled';
     showMessage(`Course ${course.code} has been ${action}.`, 'success');
 }
@@ -276,39 +272,27 @@ function toggleCourseStatus(courseId) {
 // MESSAGE DISPLAY FUNCTION
 // ============================================
 
-/**
- * Show a message to the user
- */
 function showMessage(message, type) {
     const messageArea = document.getElementById('messageArea');
-    
-    // Set the message text
     messageArea.textContent = message;
-    
-    // Set the appropriate class for styling
     messageArea.className = 'message-area';
     messageArea.classList.add(`message-${type}`);
-    
-    // Make sure it's visible
     messageArea.style.display = 'block';
     
-    // Hide the message after 3 seconds
     setTimeout(() => {
         messageArea.style.display = 'none';
     }, 3000);
 }
 
 // ============================================
-// REMOVED: editCourse function (not Rachel's part)
-// ============================================
-
-// ============================================
 // INITIALIZE THE PAGE
 // ============================================
 
-/**
- * This runs when the page loads
- */
 window.onload = function() {
     displayCourses();
+    
+    // RACHEL'S PART: Attach event handlers
+    document.getElementById('createCourseForm').addEventListener('submit', handleCreateCourse);
+    document.getElementById('editCourseForm').addEventListener('submit', handleEditCourse);
+    document.getElementById('deleteCourseForm').addEventListener('submit', handleDeleteCourse);
 };

@@ -1,0 +1,66 @@
+INSTALLATION GUIDE - SMART COURSE COMPANION
+============================================
+Deliverable 2 - Full Stack Application
+
+TEAM MEMBERS:
+- Hanan Sayed (40316818)
+- Yuqian Li (Rachel) (40330774)
+- Xinlei Tian (40293328)
+- Yufeng Wang (40247565)
+
+SYSTEM REQUIREMENTS:
+--------------------
+- Node.js (v14 or higher)
+- npm (Node Package Manager)
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+
+INSTALLATION STEPS:
+-------------------
+1. Download and extract the project folder
+
+2. Ensure the following folder structure is maintained:
+
+   project-folder/
+   ├── server.js
+   ├── package.json
+   ├── database.sqlite (will be auto-generated)
+   ├── index.html
+   ├── css/
+   │   └── (all CSS files)
+   └── pages-html/
+       └── (all HTML files)
+
+3. Install dependencies:
+   Open terminal in project folder and run:
+   > npm install
+
+4. Start the server:
+   > node server.js
+
+5. Open your browser and navigate to:
+   > http://localhost:3000
+
+DEFAULT LOGIN CREDENTIALS:
+--------------------------
+Student Portal:
+  Username: student1
+  Password: student123
+
+Admin Portal:
+  Username: admin1
+  Password: admin123
+
+TROUBLESHOOTING:
+----------------
+- If server fails to start: Check if port 3000 is already in use
+- If database error occurs: Delete database.sqlite and restart server
+- If styles don't load: Check that all CSS files are in the css/ folder
+- For best experience: Use Chrome or Firefox
+
+DELIVERABLE 2 NOTES:
+-------------------
+- This is a full-stack application with backend support
+- All data is stored in SQLite database
+- Authentication is required for all pages
+- All calculations are performed on the server side
+- Input validation is implemented on both frontend and backend

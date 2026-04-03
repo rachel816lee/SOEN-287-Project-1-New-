@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Rachel's CSS -->
     <link rel="stylesheet" href="../../css/01-student page.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Portal - Smart Course Companion</title>
 </head>
 <body>
-    <!-- ==================== HEADER ==================== -->
     <header>
         <h1>Smart Course Companion</h1>
         <nav>
-            <a href="../../index.html" class="active">Home</a>
+            <a href="../../index.html">Home</a>
             <a href="../Zayne-html/dashboard.html">Dashboard</a>
             <a href="../Hanan-html/courseManagement.html">My course</a>
             <a href="../Rachel-html/student-track grades.html">Track grades</a>
             <a href="../Yufeng Wang-html/Student-Assessments.html">Assessments</a>
+            <a href="#" id="logoutBtn" style="background-color:#e74c3c;">Logout</a>
         </nav>
     </header>
 
-    <!-- ==================== MAIN CONTENT ==================== -->
     <main>
         <h2>Student Portal</h2>
         <p>Welcome to Smart Course Companion. Select an option below to get started.</p>
         
-        <!-- Quick links for Deliverable 1 -->
         <ul style="margin-top: 2rem;">
-            <li><a href="../Hanan-html/loginPage.html">→ Login</a></li>
-            <li><a href="../Hanan-html/signup.html">→ Sign up</a></li>
             <li><a href="../Zayne-html/dashboard.html">→ View dashboard (Upcoming assessments)</a></li>         
             <li><a href="../Hanan-html/courseManagement.html">→ My course (Add/Edit/Delete)</a></li>
-            <li><a href="../Rachel-html/student-track grades.html">→ Track your grades(View averages & GPA)</a></li>
-            <li><a href="../Yufeng Wang-html/Student-Assessments.html">→ Assesments(Course details & Assessment structures)</a></li>
+            <li><a href="../Rachel-html/student-track grades.html">→ Track your grades (View averages & GPA)</a></li>
+            <li><a href="../Yufeng Wang-html/Student-Assessments.html">→ Assessments (Course details & Assessment structures)</a></li>
         </ul>
     </main>
 
-    <!-- ==================== FOOTER ==================== -->
     <footer>
         <nav>
-            <a href="../../index.html"  class="active">Home</a>
+            <a href="../../index.html">Home</a>
             <a href="../Zayne-html/dashboard.html">Dashboard</a>
             <a href="../Hanan-html/courseManagement.html">My course</a>
             <a href="../Rachel-html/student-track grades.html">Track grades</a>
@@ -48,6 +42,24 @@
         <p>&copy; 2026 Smart Course Companion</p>
     </footer>
 
-
+    <script>
+        // Check authentication
+        async function checkAuth() {
+            const response = await fetch('/api/session');
+            const data = await response.json();
+            if (!data.loggedIn) {
+                window.location.href = '../Hanan-html/loginPage.html';
+            }
+        }
+        
+        // Logout function
+        document.getElementById('logoutBtn').addEventListener('click', async (e) => {
+            e.preventDefault();
+            await fetch('/api/logout', { method: 'POST' });
+            window.location.href = '../../index.html';
+        });
+        
+        checkAuth();
+    </script>
 </body>
 </html>

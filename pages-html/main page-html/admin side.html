@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Rachel's CSS -->
     <link rel="stylesheet" href="../../css/00-admin%20page.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Portal - Smart Course Companion</title>
 </head>
 <body>
-    <!-- ==================== HEADER ==================== -->
     <header>
         <h1>Smart Course Companion - Admin Panel</h1>
         <nav>
-            <a href="../../index.html" class="active">Home</a>
+            <a href="../../index.html">Home</a>
             <a href="../Rachel-html/admin-manage courses.html">Manage Courses</a>
             <a href="../Yufeng Wang-html/Admin-Management-Assessments.html">Manage Assessments</a>
-            
+            <a href="#" id="logoutBtn" style="background-color:#e74c3c;">Logout</a>
         </nav>
     </header>
 
-    <!-- ==================== MAIN CONTENT ==================== -->
     <main>
         <h2>Admin Portal</h2>
         <p>Welcome to the admin panel. Use the navigation above to manage courses.</p>
         
-        <!-- Quick links for Deliverable 1 -->
         <ul style="margin-top: 2rem;">
-
             <li><a href="../Rachel-html/admin-manage courses.html">→ Manage Courses (Create/Edit courses)</a></li>
             <li><a href="../Yufeng Wang-html/Admin-Management-Assessments.html">→ Manage Assessments (Edit assessment categories)</a></li>
-
         </ul>
     </main>
 
-    <!-- ==================== FOOTER ==================== -->
     <footer>
         <nav>
-            <a href="../../index.html" class="active">Home</a>
+            <a href="../../index.html">Home</a>
             <a href="../Rachel-html/admin-manage courses.html">Manage Courses</a>
             <a href="../Yufeng Wang-html/Admin-Management-Assessments.html">Manage Assessments</a>          
         </nav>
         <p>&copy; 2026 Smart Course Companion</p>
     </footer>
 
-
+    <script>
+        // Check authentication
+        async function checkAuth() {
+            const response = await fetch('/api/session');
+            const data = await response.json();
+            if (!data.loggedIn) {
+                window.location.href = '../Hanan-html/loginPage.html';
+            }
+            if (data.user.role !== 'admin') {
+                alert('Admin access required');
+                window.location.href = '../../index.html';
+            }
+        }
+        
+        // Logout function
+        document.getElementById('logoutBtn').addEventListener('click', async (e) => {
+            e.preventDefault();
+            await fetch('/api/logout', { method: 'POST' });
+            window.location.href = '../../index.html';
+        });
+        
+        checkAuth();
+    </script>
 </body>
 </html>
