@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
+    <link rel="stylesheet" href="../../css/auth-header.css?v=20260403">
+    <script src="../../js/auth-header.js?v=20260403" defer></script>
     <link rel="stylesheet" href="../../css/01-student page.css">
 
     <meta charset="UTF-8">
@@ -10,6 +12,7 @@
 
 
 </head>
+
 <body>
     <!-- ==================== HEADER ==================== -->
     <header>
@@ -25,7 +28,7 @@
 
     <main>
         <h2>Track Your Grades</h2>
-        
+
         <!-- Course Averages Section -->
         <section class="course-averages">
             <h3>Course Averages</h3>
@@ -45,7 +48,7 @@
             <select id="exportFormat" onchange="handleExport()">
                 <option value="">-- Select export format --</option>
                 <option value="pdf">-- PDF format</option>
-                <option value="CSV">--CSV format</option>    
+                <option value="CSV">--CSV format</option>
             </select>
 
             <button onclick="exportSelected()">Export</button>
@@ -67,4 +70,5 @@
 
     <script src="../../js/pages-js/Rachel-js/track-grades.js"></script>
 </body>
+
 </html>

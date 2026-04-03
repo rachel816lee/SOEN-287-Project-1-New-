@@ -1,0 +1,36 @@
+/* Global user info styles - add to all pages */
+.global-user-info {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    z-index: 1000;
+}
+
+.global-user-info .user-name {
+    color: white;
+    font-weight: bold;
+}
+
+.global-user-info .logout-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.global-user-info .logout-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Make header relative for absolute positioning */
+header {
+    position: relative;
+}

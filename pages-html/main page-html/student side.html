@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+        <link rel="stylesheet" href="../../css/auth-header.css?v=20260403">
+        <script src="../../js/auth-header.js?v=20260403" defer></script>
     <link rel="stylesheet" href="../../css/01-student page.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Portal - Smart Course Companion</title>
+    <style>
+        /* User info styles */
+        .user-info {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .user-info span {
+            color: white;
+            font-weight: bold;
+        }
+
+        .user-info .logout-btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .user-info .logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        header {
+            position: relative;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>Smart Course Companion</h1>
@@ -15,19 +55,23 @@
             <a href="../Hanan-html/courseManagement.html">My course</a>
             <a href="../Rachel-html/student-track grades.html">Track grades</a>
             <a href="../Yufeng Wang-html/Student-Assessments.html">Assessments</a>
-            <a href="#" id="logoutBtn" style="background-color:#e74c3c;">Logout</a>
         </nav>
+        <div class="user-info" id="userInfo">
+            <span id="username"></span>
+            <a href="#" id="logoutBtn" class="logout-btn">Logout</a>
+        </div>
     </header>
 
     <main>
         <h2>Student Portal</h2>
         <p>Welcome to Smart Course Companion. Select an option below to get started.</p>
-        
+
         <ul style="margin-top: 2rem;">
-            <li><a href="../Zayne-html/dashboard.html">→ View dashboard (Upcoming assessments)</a></li>         
+            <li><a href="../Zayne-html/dashboard.html">→ View dashboard (Upcoming assessments)</a></li>
             <li><a href="../Hanan-html/courseManagement.html">→ My course (Add/Edit/Delete)</a></li>
             <li><a href="../Rachel-html/student-track grades.html">→ Track your grades (View averages & GPA)</a></li>
-            <li><a href="../Yufeng Wang-html/Student-Assessments.html">→ Assessments (Course details & Assessment structures)</a></li>
+            <li><a href="../Yufeng Wang-html/Student-Assessments.html">→ Assessments (Course details & Assessment
+                    structures)</a></li>
         </ul>
     </main>
 
@@ -43,23 +87,30 @@
     </footer>
 
     <script>
-        // Check authentication
+        // Display username and check authentication
         async function checkAuth() {
             const response = await fetch('/api/session');
             const data = await response.json();
             if (!data.loggedIn) {
                 window.location.href = '../Hanan-html/loginPage.html';
+                return;
+            }
+            // Display username
+            const usernameSpan = document.getElementById('username');
+            if (usernameSpan && data.user) {
+                usernameSpan.textContent = data.user.username;
             }
         }
-        
+
         // Logout function
         document.getElementById('logoutBtn').addEventListener('click', async (e) => {
             e.preventDefault();
             await fetch('/api/logout', { method: 'POST' });
             window.location.href = '../../index.html';
         });
-        
+
         checkAuth();
     </script>
 </body>
+
 </html>

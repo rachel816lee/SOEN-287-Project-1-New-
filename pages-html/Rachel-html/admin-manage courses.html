@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="stylesheet" href="../../css/auth-header.css?v=20260403">
+    <script src="../../js/auth-header.js?v=20260403" defer></script>
     <link rel="stylesheet" href="../../css/00-admin%20page.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Manage Courses | Smart Course Companion</title>
 </head>
+
 <body>
     <!-- ==================== HEADER ==================== -->
     <header>
@@ -20,7 +24,7 @@
     <!-- ==================== MAIN CONTENT ==================== -->
     <main>
         <h2>Course Management</h2>
-        
+
         <!-- =============================================== -->
         <!-- HANAN'S PART: Create Course (from instructorManagement.html) -->
         <!-- =============================================== -->
@@ -57,6 +61,7 @@
         <section class="edit-course">
             <h2 id="edit">Edit a Course</h2>
             <form id="editCourseForm">
+                <input type="hidden" id="editCourseId">
                 <label>Enter Course Code to Edit:</label><br>
                 <input type="text" id="editCourseCode" required><br><br>
 
@@ -98,7 +103,7 @@
             <div id="messageArea" class="message-area"></div>
 
             <h3>Existing Courses</h3>
-            
+
             <table id="coursesTable">
                 <thead>
                     <tr>
@@ -120,11 +125,12 @@
         <nav>
             <a href="../../index.html">Home</a>
             <a href="../Rachel-html/admin-manage courses.html" class="active">Manage Courses</a>
-            <a href="../Yufeng Wang-html/Admin-Management-Assessments.html">Manage Assessments</a>          
+            <a href="../Yufeng Wang-html/Admin-Management-Assessments.html">Manage Assessments</a>
         </nav>
         <p>&copy; 2026 Smart Course Companion</p>
     </footer>
 
     <script src="../../js/pages-js/Rachel-js/admin-courses.js"></script>
 </body>
+
 </html>
