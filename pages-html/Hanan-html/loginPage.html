@@ -1,45 +1,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
-        <link rel="stylesheet" href="../../css/loginPage.css">
+        <title> Login </title>
+        <a href="/logout">Logout</a>
     </head>
-    <body>
-        <h2>Login</h2>
-        <div> 
-            <form id="loginForm">
-                <label>Username or Email:</label><br>
-                <input type="text" name="username" required><br><br>
-                <label>Password:</label><br>
-                <input type="password" name="password" required><br><br>
-                <input type="submit" value="Login">
-            </form>
-        </div>
-        <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
 
-        <script>
-            document.getElementById('loginForm').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const username = document.querySelector('input[name="username"]').value;
-                const password = document.querySelector('input[name="password"]').value;
+    <body>
+
+        <h2> Login </h2>
+
+        <div> 
+
+            <form action="/login" method="post">
+
                 
-                const response = await fetch('/api/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, password })
-                });
-                
-                const data = await response.json();
-                if (data.success) {
-                    if (data.user.role === 'admin') {
-                        window.location.href = '../main page-html/admin side.html';
-                    } else {
-                        window.location.href = '../main page-html/student side.html';
-                    }
-                } else {
-                    alert(data.error || 'Login failed');
-                }
-            });
-        </script>
+            <label> Username Or Email: </label><br>
+            <input type = "text" name = "username" required><br><br>
+
+            <label> Password: </label><br>
+            <input type ="password" name = "password" required><br><br>
+
+            <input type = "submit" value = "login">
+
+        </form>
+
+    </div>
+
+    <p> Dont have an account? <a href="signup.html">Sign up here</a></p>
+
+        
     </body>
 </html>

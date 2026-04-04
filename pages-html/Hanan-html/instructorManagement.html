@@ -1,28 +1,14 @@
-<!--==========================================================================-->
-<!--This HTML will be combined into "../Rachel-html/admin-manage courses.html"-->
-<!--==========================================================================-->
-
 <!DOCTYPE html>
 <html>
+
 <head>
+    <a href="/logout">Logout</a>
     <title>Instructor Course Management</title>
-    <link rel="stylesheet" href="../../css/instructorManagement.css">
 </head>
 
 
 
 <body>
-    <!-- ==================== HEADER ==================== -->
-    <header>
-        <h1>Smart Course Companion - Admin Panel</h1>
-        <nav>
-            <a href="../../index.html">Home</a>
-            <a href="../Rachel-html/admin-manage courses.html" class="active">Manage Courses</a>
-            <a href="../Yufeng Wang-html/Admin-Management-Assessments.html">Manage Assessments</a>
-            
-        </nav>
-    </header>
-
 
     <h1>Instructor: Course Management</h1>
 
@@ -34,26 +20,21 @@
     <hr>
 
     <!-- CREATE COURSE -->
+
     <h2 id="create">Create a Course</h2>
 
-    <form>
+    <form action="/admin-create-course" method="post">
         <label>Course Code:</label><br>
-        <input type="text" required><br><br>
+        <input type="text" name="code" required><br><br>
 
         <label>Course Name:</label><br>
-        <input type="text" required><br><br>
+        <input type="text" name="name" required><br><br>
 
         <label>Instructor Name:</label><br>
-        <input type="text" required><br><br>
+        <input type="text" name="instructor" required><br><br>
 
         <label>Term:</label><br>
-        <input type="text" required><br><br>
-
-        <label>Assessment Categories:</label><br>
-        <input type="checkbox"> Assignments<br>
-        <input type="checkbox"> Labs<br>
-        <input type="checkbox"> Quizzes<br>
-        <input type="checkbox"> Exams<br><br>
+        <input type="text" name="term" required><br><br>
 
         <input type="submit" value="Create Course">
     </form>
@@ -84,18 +65,7 @@
 
         <input type="submit" value="Save Changes">
     </form>
-    <!-- ==================== FOOTER ==================== -->
-    <footer>
-        <nav>
-            <a href="../../index.html">Home</a>
-            <a href="../Rachel-html/admin-manage courses.html" class="active">Manage Courses</a>
-            <a href="../Yufeng Wang-html/Admin-Management-Assessments.html">Manage Assessments</a>          
-        </nav>
-        <p>&copy; 2026 Smart Course Companion</p>
-    </footer>
 
 </body>
 
 </html>
-
-

@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <a href="/logout">Logout</a>
         <title> Course Management </title>
-        <link rel="stylesheet" href="../../css/courseManagement.css">
     </head>
     <body>
 
-    <!-- ==================== HEADER ==================== -->
-    <header>
-        <h1>Smart Course Companion</h1>
-        <nav>
-            <a href="../../index.html">Home</a>
-            <a href="../Zayne-html/dashboard.html">Dashboard</a>
-            <a href="../Hanan-html/courseManagement.html" class="active">My course</a>
-            <a href="../Rachel-html/student-track grades.html">Track grades</a>
-            <a href="../Yufeng Wang-html/Student-Assessments.html">Assessments</a>
-        </nav>
-    </header>
-
-
         <h1> Course Management </h1>
 
+     
+
+    <a href="/view-courses">View My Courses</a>
+
+    
         <ul>
             <li> <a href = "add"> Add a course</a></li>
             <li> <a href = "delete"> Delete a course</a></li>
@@ -28,68 +20,82 @@
         </ul>
 
         <h2 id ="add"> Add a Course</h2>
-        <form>
+        <form action="/add-course" method="post">
 
+    
+            <label>Course Code:</label><br>
+   
+            <input type="text" name="code" required><br><br>
+
+    
+            <label>Course Name:</label><br>
+    
+            <input type="text" name="name" required><br><br>
+
+    
+            <label>Instructor:</label><br>
+    
+            <input type="text" name="instructor" required><br><br>
+
+    
+            <label>Term:</label><br>
+   
+            <input type="text" name="term" required><br><br>
+
+   
+            <input type="submit" value="Add Course">
+
+
+        </form>
+
+
+       
+        <h2 id="edit">Edit a Course</h2>
+
+
+        <form action="/edit-course" method="post">
+
+   
+            <label>Enter Course Code to Edit:</label><br>
+   
+            <input type="text" name="code" required><br><br>
+
+   
+            <label>New Course Name:</label><br>
+   
+            <input type="text" name="name"><br><br>
+
+   
+            <label>New Instructor:</label><br>
+   
+            <input type="text" name="instructor"><br><br>
+
+   
+            <label>New Term:</label><br>
+   
+            <input type="text" name="term"><br><br>
+
+   
+            <input type="submit" value="Save Changes">
+
+
+        </form>
+    
+    <h2 id="delete">Delete a Course</h2>
+
+
+     <form action="/delete-course" method="post">
+
+    
         <label>Course Code:</label><br>
-        <input type="text" required><br><br>
+    
+        <input type="text" name="code" required><br><br>
 
-        <label>Course Name:</label><br>
-        <input type="text" required><br><br>
-
-        <label>Instructor:</label><br>
-        <input type="text" required><br><br>
-
-        <label>Term:</label><br>
-        <input type="text" required><br><br>
-
-        <input type="submit" value="Add Course">
-
-    </form>
-
-    <h2 id="edit">Edit a Course</h2>
-
-    <form>
-
-        <label>Enter Course Code to Edit:</label><br>
-        <input type="text" required><br><br>
-
-        <label>New Course Name:</label><br>
-        <input type="text"><br><br>
-
-        <label>New Instructor:</label><br>
-        <input type="text"><br><br>
-
-        <label>New Term:</label><br>
-        <input type="text"><br><br>
-
-        <input type="submit" value="Save Changes">
-
-    </form>
-
-     <h2 id="delete">Delete a Course</h2>
-
-    <form>
-
-        <label>Course Code:</label><br>
-        <input type="text" required><br><br>
-
+    
         <input type="submit" value="Delete Course">
 
+
     </form>
-    <!-- ==================== FOOTER ==================== -->
-    <footer>
-        <nav>
-            <a href="../../index.html">Home</a>
-            <a href="../Zayne-html/dashboard.html">Dashboard</a>
-            <a href="../Hanan-html/courseManagement.html" class="active">My course</a>
-            <a href="../Rachel-html/student-track grades.html">Track grades</a>
-            <a href="../Yufeng Wang-html/Student-Assessments.html">Assessments</a>
-        </nav>
-        <p>&copy; 2026 Smart Course Companion</p>
-    </footer>
 
     </body>
-
 </html>
-
-

@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sign Up</title>
-        <link rel="stylesheet" href="../../css/signup.css">
+        <a href="/logout">Logout</a>
+        <title> Sign Up</title>
     </head>
     <body>
-        <h2>Sign Up</h2>
-        <form id="signupForm">
-            <label>Full Name:</label><br>
-            <input type="text" name="fullname" required><br><br>
-            <label>Email:</label><br>
-            <input type="email" name="email" required><br><br>
-            <label>Username:</label><br>
+
+        <h2> Sign Up </h2>
+
+        <form action="/signup" method="post">
+
+            <label> Full Name: </label><br>
+            <input type = "text" name = "fullname" required> <br><br>
+
+            <label>EMail:</label><br>
+            <input type ="email" name ="email" required><br><br>
+
+                        <label>Username:</label><br>
             <input type="text" name="username" required><br><br>
+
             <label>Password:</label><br>
             <input type="password" name="password" required><br><br>
+
             <label>Confirm Password:</label><br>
             <input type="password" name="confirm_password" required><br><br>
-            <input type="submit" value="Create Account">
-        </form>
-        <p>Already have an account? <a href="loginPage.html">Login Here</a></p>
 
-        <script>
-            document.getElementById('signupForm').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const fullname = document.querySelector('input[name="fullname"]').value;
-                const email = document.querySelector('input[name="email"]').value;
-                const username = document.querySelector('input[name="username"]').value;
-                const password = document.querySelector('input[name="password"]').value;
-                const confirmPassword = document.querySelector('input[name="confirm_password"]').value;
-                
-                const response = await fetch('/api/signup', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ fullname, email, username, password, confirmPassword })
-                });
-                
-                const data = await response.json();
-                if (data.success) {
-                    window.location.href = '../main page-html/student side.html';
-                } else {
-                    alert(data.error || 'Signup failed');
-                }
-            });
-        </script>
+            
+
+            <label>Role:</label><br>
+
+            <select name="role" required>
+   
+                <option value="student">Student</option>
+   
+                <option value="admin">Admin</option>
+
+            </select><br><br>
+
+            <input type="submit" value="Create Account">
+            
+        </form>
+        <p> Already Have An Account? <a href = "login.html"> Login Here </a></p>
     </body>
 </html>
