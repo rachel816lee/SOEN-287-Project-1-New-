@@ -1,101 +1,112 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <a href="/logout">Logout</a>
-        <title> Course Management </title>
-    </head>
-    <body>
 
-        <h1> Course Management </h1>
+<head>
+    <a href="/logout">Logout</a>
+    <title> Course Management </title>
 
-     
+    <a href="/view-courses">View My Courses</a><br>
+
+    <a href="/logout">Logout</a>
+</head>
+
+<body>
+
+    <h1> Course Management </h1>
+
+
 
     <a href="/view-courses">View My Courses</a>
 
+
+    <ul>
+        <li><a href="#add">Add a course</a></li>
+
+        <li><a href="#delete">Delete a course</a></li>
+
+        <li><a href="#edit">Edit a course</a></li>
+
+    </ul>
+
+    <h2 id="add"> Add a Course</h2>
     
-        <ul>
-            <li> <a href = "add"> Add a course</a></li>
-            <li> <a href = "delete"> Delete a course</a></li>
-            <li> <a href = "edit"> Edit a course</a></li>
-        </ul>
-
-        <h2 id ="add"> Add a Course</h2>
-        <form action="/add-course" method="post">
-
-    
-            <label>Course Code:</label><br>
-   
-            <input type="text" name="code" required><br><br>
-
-    
-            <label>Course Name:</label><br>
-    
-            <input type="text" name="name" required><br><br>
-
-    
-            <label>Instructor:</label><br>
-    
-            <input type="text" name="instructor" required><br><br>
-
-    
-            <label>Term:</label><br>
-   
-            <input type="text" name="term" required><br><br>
-
-   
-            <input type="submit" value="Add Course">
+    <form action="/add-course" method="post">
 
 
-        </form>
+        <label>Course Code:</label><br>
+
+        <input type="text" name="code" required><br><br>
 
 
-       
-        <h2 id="edit">Edit a Course</h2>
+        <label>Course Name:</label><br>
+
+        <input type="text" name="name" required><br><br>
 
 
-        <form action="/edit-course" method="post">
+        <label>Instructor:</label><br>
 
-   
-            <label>Enter Course Code to Edit:</label><br>
-   
-            <input type="text" name="code" required><br><br>
-
-   
-            <label>New Course Name:</label><br>
-   
-            <input type="text" name="name"><br><br>
-
-   
-            <label>New Instructor:</label><br>
-   
-            <input type="text" name="instructor"><br><br>
-
-   
-            <label>New Term:</label><br>
-   
-            <input type="text" name="term"><br><br>
-
-   
-            <input type="submit" value="Save Changes">
+        <input type="text" name="instructor" required><br><br>
 
 
-        </form>
-    
+        <label>Term:</label><br>
+
+        <input type="text" name="term" required><br><br>
+
+
+        <input type="submit" value="Add Course">
+
+
+    </form>
+
+
+
+    <h2 id="edit">Edit a Course</h2>
+
+
+    <form action="/edit-course" method="post">
+
+
+        <label>Enter Course Code to Edit:</label><br>
+
+        <input type="text" name="code" required><br><br>
+
+
+        <label>New Course Name:</label><br>
+
+        <input type="text" name="name"><br><br>
+
+
+        <label>New Instructor:</label><br>
+
+        <input type="text" name="instructor"><br><br>
+
+
+        <label>New Term:</label><br>
+
+        <input type="text" name="term"><br><br>
+
+
+        <input type="submit" value="Save Changes">
+
+
+    </form>
+
     <h2 id="delete">Delete a Course</h2>
 
 
-     <form action="/delete-course" method="post">
+    <form action="/delete-course" method="post">
 
-    
+
         <label>Course Code:</label><br>
-    
+
         <input type="text" name="code" required><br><br>
 
-    
+
         <input type="submit" value="Delete Course">
 
 
     </form>
 
-    </body>
+</body>
+
 </html>
